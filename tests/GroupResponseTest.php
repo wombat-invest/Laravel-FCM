@@ -1,20 +1,19 @@
 <?php
 
-use LaravelFCM\Response\GroupResponse;
+namespace WombatInvest\LaravelFCM\Tests;
+
+use GuzzleHttp\Psr7\Response;
+use WombatInvest\LaravelFCM\Response\GroupResponse;
 
 class GroupResponseTest extends FCMTestCase
 {
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_successes()
+    public function testGroupResponseSuccess()
     {
         $notificationKey = 'notificationKey';
-
-        $response = new \GuzzleHttp\Psr7\Response(200, [], '{
-					"success": 2,
-					"failure": 0
-					}');
+        $response = new Response(200, [], '{
+            "success": 2,
+            "failure": 0
+        }');
 
         $responseGroup = new GroupResponse($response, $notificationKey);
 
@@ -23,20 +22,17 @@ class GroupResponseTest extends FCMTestCase
         $this->assertCount(0, $responseGroup->tokensFailed());
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_failures()
+    public function testGroupResponseFailure()
     {
         $notificationKey = 'notificationKey';
-
         $response = new \GuzzleHttp\Psr7\Response(200, [], '{
-					"success": 0,
-					"failure": 2,
-					"failed_registration_ids":[
-					   "regId1",
-					   "regId2"
-					]}');
+            "success": 0,
+            "failure": 2,
+            "failed_registration_ids": [
+                "regId1",
+                "regId2"
+            ]
+        }');
 
         $responseGroup = new GroupResponse($response, $notificationKey);
 
@@ -48,20 +44,18 @@ class GroupResponseTest extends FCMTestCase
         $this->assertEquals('regId2', $responseGroup->tokensFailed()[ 1]);
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_partials_failures()
+    public function testGroupResponseWithSuccessAndFailure()
     {
         $notificationKey = 'notificationKey';
 
         $response = new \GuzzleHttp\Psr7\Response(200, [], '{
-					"success": 1,
-					"failure": 2,
-					"failed_registration_ids":[
-					   "regId1",
-					   "regId2"
-					]}');
+            "success": 1,
+            "failure": 2,
+            "failed_registration_ids": [
+                "regId1",
+                "regId2"
+            ]
+        }');
 
         $responseGroup = new GroupResponse($response, $notificationKey);
 

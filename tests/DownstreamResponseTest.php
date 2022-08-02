@@ -1,26 +1,24 @@
 <?php
 
+namespace WombatInvest\LaravelFCM\Tests;
+
 use GuzzleHttp\Psr7\Response;
-use LaravelFCM\Response\DownstreamResponse;
+use WombatInvest\LaravelFCM\Response\DownstreamResponse;
 
 class DownstreamResponseTest extends FCMTestCase
 {
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_a_success()
+    public function testSingleSuccess()
     {
         $token = 'new_token';
-
         $response = new Response(200, [], '{
-		                    "multicast_id": 108,
-                            "success": 1,
-                            "failure": 0,
-                            "canonical_ids": 0,
-                            "results": [
-                                { "message_id": "1:08" }
-                            ]
-						}');
+            "multicast_id": 108,
+            "success": 1,
+            "failure": 0,
+            "canonical_ids": 0,
+            "results": [
+                { "message_id": "1:08" }
+            ]
+        }');
 
         $downstreamResponse = new DownstreamResponse($response, $token);
 
@@ -32,10 +30,7 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertCount(0, $downstreamResponse->tokensToModify());
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_multiple_successes()
+    public function testMultipleSuccesses()
     {
         $tokens = [
             'first_token',
@@ -44,16 +39,16 @@ class DownstreamResponseTest extends FCMTestCase
         ];
 
         $response = new Response(200, [], '{
-		                    "multicast_id": 108,
-                            "success": 3,
-                            "failure": 0,
-                            "canonical_ids": 0,
-                            "results": [
-                                { "message_id": "1:01" },
-                                { "message_id": "1:02" },
-                                { "message_id": "1:03" }
-                            ]
-						}');
+            "multicast_id": 108,
+            "success": 3,
+            "failure": 0,
+            "canonical_ids": 0,
+            "results": [
+                { "message_id": "1:01" },
+                { "message_id": "1:02" },
+                { "message_id": "1:03" }
+            ]
+        }');
 
         $downstreamResponse = new DownstreamResponse($response, $tokens);
 
@@ -65,22 +60,18 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertCount(0, $downstreamResponse->tokensToModify());
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_a_failure()
+    public function testSingleFailure()
     {
         $token = 'new_token';
-
         $response = new Response(200, [], '{
-		                    "multicast_id": 108,
-                            "success": 0,
-                            "failure": 1,
-                            "canonical_ids": 0,
-                            "results": [
-                                 { "error": "NotRegistered" }
-                            ]
-						}');
+            "multicast_id": 108,
+            "success": 0,
+            "failure": 1,
+            "canonical_ids": 0,
+            "results": [
+                    { "error": "NotRegistered" }
+            ]
+        }');
 
         $downstreamResponse = new DownstreamResponse($response, $token);
 
@@ -94,10 +85,7 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertCount(0, $downstreamResponse->tokensToModify());
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_multiple_failures()
+    public function testMultipleFailures()
     {
         $tokens = [
             'first_token',
@@ -107,17 +95,17 @@ class DownstreamResponseTest extends FCMTestCase
         ];
 
         $response = new Response(200, [], '{
-		                    "multicast_id": 108,
-                            "success": 0,
-                            "failure": 3,
-                            "canonical_ids": 0,
-                            "results": [
-                                 { "error": "NotRegistered" },
-                                 { "error": "InvalidRegistration" },
-                                 { "error": "NotRegistered" },
-                                 { "error": "MissingRegistration"}
-                            ]
-						}');
+            "multicast_id": 108,
+            "success": 0,
+            "failure": 3,
+            "canonical_ids": 0,
+            "results": [
+                    { "error": "NotRegistered" },
+                    { "error": "InvalidRegistration" },
+                    { "error": "NotRegistered" },
+                    { "error": "MissingRegistration"}
+            ]
+        }');
 
         $downstreamResponse = new DownstreamResponse($response, $tokens);
 
@@ -133,22 +121,18 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertCount(0, $downstreamResponse->tokensToModify());
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_a_token_to_change()
+    public function testSingleTokenToModify()
     {
         $token = 'new_token';
-
         $response = new Response(200, [], '{
-		                    "multicast_id": 108,
-                            "success": 0,
-                            "failure": 0,
-                            "canonical_ids": 1,
-                            "results": [
-                                  { "message_id": "1:2342", "registration_id": "32" }
-                            ]
-						}');
+            "multicast_id": 108,
+            "success": 0,
+            "failure": 0,
+            "canonical_ids": 1,
+            "results": [
+                    { "message_id": "1:2342", "registration_id": "32" }
+            ]
+        }');
 
         $downstreamResponse = new DownstreamResponse($response, $token);
 
@@ -163,10 +147,7 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertEquals('32', $downstreamResponse->tokensToModify()[ $token ]);
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_multiple_tokens_to_change()
+    public function testMultipleTokensToModify()
     {
         $tokens = [
             'first_token',
@@ -175,16 +156,16 @@ class DownstreamResponseTest extends FCMTestCase
         ];
 
         $response = new Response(200, [], '{
-		                    "multicast_id": 108,
-                            "success": 0,
-                            "failure": 0,
-                            "canonical_ids": 3,
-                            "results": [
-                                 { "message_id": "1:2342", "registration_id": "32" },
-                                 { "message_id": "1:2342", "registration_id": "33" },
-                                 { "message_id": "1:2342", "registration_id": "34" }
-                            ]
-						}');
+            "multicast_id": 108,
+            "success": 0,
+            "failure": 0,
+            "canonical_ids": 3,
+            "results": [
+                    { "message_id": "1:2342", "registration_id": "32" },
+                    { "message_id": "1:2342", "registration_id": "33" },
+                    { "message_id": "1:2342", "registration_id": "34" }
+            ]
+        }');
 
         $downstreamResponse = new DownstreamResponse($response, $tokens);
 
@@ -205,22 +186,18 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertEquals('34', $downstreamResponse->tokensToModify()[ $tokens[ 2 ] ]);
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_a_token_unavailable()
+    public function testUnavailableFailure()
     {
         $token = 'first_token';
-
         $response = new Response(200, [], '{ 
-						  "multicast_id": 216,
-						  "success": 0,
-						  "failure": 1,
-						  "canonical_ids": 0,
-						  "results": [
-							    { "error": "Unavailable" }
-	                      ]
-					}');
+                "multicast_id": 216,
+                "success": 0,
+                "failure": 1,
+                "canonical_ids": 0,
+                "results": [
+                    { "error": "Unavailable" }
+                ]
+        }');
 
         $downstreamResponse = new DownstreamResponse($response, $token);
 
@@ -236,22 +213,18 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertEquals($token, $downstreamResponse->tokensToRetry()[0]);
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_a_token_server_error()
+    public function testServerFailure()
     {
         $token = 'first_token';
-
         $response = new Response(200, [], '{ 
-						  "multicast_id": 216,
-						  "success": 0,
-						  "failure": 1,
-						  "canonical_ids": 0,
-						  "results": [
-							    { "error": "InternalServerError" }
-	                      ]
-					}');
+            "multicast_id": 216,
+            "success": 0,
+            "failure": 1,
+            "canonical_ids": 0,
+            "results": [
+                { "error": "InternalServerError" }
+            ]
+        }');
 
         $downstreamResponse = new DownstreamResponse($response, $token);
 
@@ -267,22 +240,18 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertEquals($token, $downstreamResponse->tokensToRetry()[0]);
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_a_token_exceeded()
+    public function testRateLimitExceededFailure()
     {
         $token = 'first_token';
-
         $response = new Response(200, [], '{ 
-						  "multicast_id": 216,
-						  "success": 0,
-						  "failure": 1,
-						  "canonical_ids": 0,
-						  "results": [
-							    { "error": "DeviceMessageRateExceeded" }
-	                      ]
-					}');
+                "multicast_id": 216,
+                "success": 0,
+                "failure": 1,
+                "canonical_ids": 0,
+                "results": [
+                    { "error": "DeviceMessageRateExceeded" }
+                ]
+        }');
 
         $downstreamResponse = new DownstreamResponse($response, $token);
 
@@ -298,10 +267,7 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertEquals($token, $downstreamResponse->tokensToRetry()[0]);
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_a_mixed_token_to_retry()
+    public function testMultipleTokensToRetry()
     {
         $tokens = [
             'first_token',
@@ -313,19 +279,19 @@ class DownstreamResponseTest extends FCMTestCase
         ];
 
         $response = new Response(200, [], '{
-						  "multicast_id": 216,
-						  "success": 0,
-						  "failure": 6,
-						  "canonical_ids": 0,
-						  "results": [
-							    { "error": "DeviceMessageRateExceeded" },
-							    { "error": "InternalServerError" },
-							    { "error": "Unavailable" },
-							    { "error": "DeviceMessageRateExceeded" },
-							    { "error": "InternalServerError" },
-							    { "error": "Unavailable" }
-	                      ]
-					}');
+                "multicast_id": 216,
+                "success": 0,
+                "failure": 6,
+                "canonical_ids": 0,
+                "results": [
+                    { "error": "DeviceMessageRateExceeded" },
+                    { "error": "InternalServerError" },
+                    { "error": "Unavailable" },
+                    { "error": "DeviceMessageRateExceeded" },
+                    { "error": "InternalServerError" },
+                    { "error": "Unavailable" }
+                ]
+        }');
 
         $downstreamResponse = new DownstreamResponse($response, $tokens);
 
@@ -346,10 +312,7 @@ class DownstreamResponseTest extends FCMTestCase
         $this->assertEquals($tokens[ 5 ], $downstreamResponse->tokensToRetry()[ 5 ]);
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_response_with_mixed_response()
+    public function testMixedResponse()
     {
         $tokens = [
             'first_token',
@@ -361,19 +324,19 @@ class DownstreamResponseTest extends FCMTestCase
         ];
 
         $response = new Response(200, [], '{ 
-						  "multicast_id": 216,
-						  "success": 3,
-						  "failure": 3,
-						  "canonical_ids": 1,
-						  "results": [
-							    { "message_id": "1:0408" },
-							    { "error": "Unavailable" },
-							    { "error": "InvalidRegistration" },
-							    { "message_id": "1:1516" },
-							    { "message_id": "1:2342", "registration_id": "32" },
-							    { "error": "NotRegistered"}
-	                      ]
-					}');
+                "multicast_id": 216,
+                "success": 3,
+                "failure": 3,
+                "canonical_ids": 1,
+                "results": [
+                    { "message_id": "1:0408" },
+                    { "error": "Unavailable" },
+                    { "error": "InvalidRegistration" },
+                    { "message_id": "1:1516" },
+                    { "message_id": "1:2342", "registration_id": "32" },
+                    { "error": "NotRegistered"}
+                ]
+        }');
 
         $downstreamResponse = new DownstreamResponse($response, $tokens);
 
@@ -395,7 +358,7 @@ class DownstreamResponseTest extends FCMTestCase
     /**
      * @test
      */
-    public function it_construct_a_response_with_multiples_response()
+    public function testMultipleResponses()
     {
         $tokens = [
             'first_token',
@@ -418,20 +381,20 @@ class DownstreamResponseTest extends FCMTestCase
         ];
 
         $response = new Response(200, [], '{ 
-						  "multicast_id": 216,
-						  "success": 3,
-						  "failure": 3,
-						  "canonical_ids": 1,
-						  "results": [
-							    { "message_id": "1:0408" },
-							    { "error": "Unavailable" },
-							    { "error": "InvalidRegistration" },
-							    { "message_id": "1:1516" },
-							    { "message_id": "1:2342", "registration_id": "32" },
-							    { "error": "NotRegistered"},
-							    { "error": "MessageTooBig"}
-	                      ]
-					}');
+                "multicast_id": 216,
+                "success": 3,
+                "failure": 3,
+                "canonical_ids": 1,
+                "results": [
+                    { "message_id": "1:0408" },
+                    { "error": "Unavailable" },
+                    { "error": "InvalidRegistration" },
+                    { "message_id": "1:1516" },
+                    { "message_id": "1:2342", "registration_id": "32" },
+                    { "error": "NotRegistered"},
+                    { "error": "MessageTooBig"}
+                ]
+        }');
 
         $downstreamResponse = new DownstreamResponse($response, $tokens);
         $downstreamResponse1 = new DownstreamResponse($response, $tokens1);

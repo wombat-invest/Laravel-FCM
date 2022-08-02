@@ -1,8 +1,8 @@
 <?php
 
-namespace LaravelFCM\Mocks;
+namespace WombatInvest\LaravelFCM\Mocks;
 
-use LaravelFCM\Response\GroupResponseContract;
+use WombatInvest\LaravelFCM\Response\GroupResponseContract;
 
 /**
  * Class MockGroupResponse **Only use it for testing**.

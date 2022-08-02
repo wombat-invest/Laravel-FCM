@@ -1,35 +1,33 @@
 <?php
 
-use LaravelFCM\Message\Exceptions\InvalidOptionsException;
-use LaravelFCM\Message\OptionsBuilder;
-use LaravelFCM\Message\OptionsPriorities;
-use LaravelFCM\Message\PayloadDataBuilder;
-use LaravelFCM\Message\PayloadNotificationBuilder;
+namespace WombatInvest\LaravelFCM\Tests;
 
-class PayloadTest extends FCMTestCase
+use WombatInvest\LaravelFCM\Message\Exceptions\InvalidOptionsException;
+use WombatInvest\LaravelFCM\Message\OptionsBuilder;
+use WombatInvest\LaravelFCM\Message\OptionsPriorities;
+use WombatInvest\LaravelFCM\Message\PayloadDataBuilder;
+use WombatInvest\LaravelFCM\Message\PayloadNotificationBuilder;
+
+class MessageTest extends FCMTestCase
 {
-    /**
-     * @test
-     */
-    public function it_construct_a_valid_json_with_option()
+    public function testConstructJsonWithOption()
     {
         $targetPartial = '{
-					"collapse_key":"collapseKey",
-					"content_available":true
-				}';
+            "collapse_key":"collapseKey",
+            "content_available":true
+        }';
 
         $targetFull = '{
-					"collapse_key":"collapseKey",
-					"content_available":true,
-					"priority":"HIGH",
-					"delay_while_idle":true,
-					"time_to_live":200,
-					"restricted_package_name":"customPackageName",
-					"dry_run": true
-				}';
+            "collapse_key":"collapseKey",
+            "content_available":true,
+            "priority":"high",
+            "delay_while_idle":true,
+            "time_to_live":200,
+            "restricted_package_name":"customPackageName",
+            "dry_run": true
+		}';
 
         $optionBuilder = new OptionsBuilder();
-
         $optionBuilder->setCollapseKey('collapseKey');
         $optionBuilder->setContentAvailable(true);
 
@@ -46,24 +44,19 @@ class PayloadTest extends FCMTestCase
         $this->assertJsonStringEqualsJsonString($targetFull, $json);
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_valid_json_with_data()
+    public function testConstructJsonWithData()
     {
         $targetAdd = '{
-				"first_data":"first",
-				"second_data":true
-			}';
+            "first_data":"first",
+            "second_data":true
+		}';
 
-        $targetSet = '
-				{
-					"third_data":"third",
-					"fourth_data":4
-				}';
+        $targetSet = '{
+            "third_data":"third",
+            "fourth_data":4
+        }';
 
         $dataBuilder = new PayloadDataBuilder();
-
         $dataBuilder->addData(['first_data' => 'first'])
             ->addData(['second_data' => true]);
 
@@ -76,36 +69,32 @@ class PayloadTest extends FCMTestCase
         $this->assertJsonStringEqualsJsonString($targetSet, $json);
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_valid_json_with_notification()
+    public function testConstructJsonWithNotification()
     {
         $targetPartial = '{
-					"title":"test_title",
-					"body":"test_body",
-					"badge":"test_badge",
-					"sound":"test_sound"
-				}';
+            "title":"test_title",
+            "body":"test_body",
+            "badge":"test_badge",
+            "sound":"test_sound"
+        }';
 
         $targetFull = '{
-					"title":"test_title",
-					"body":"test_body",
-					"android_channel_id":"test_channel_id",
-					"badge":"test_badge",
-					"sound":"test_sound",
-					"tag":"test_tag",
-					"color":"test_color",
-					"click_action":"test_click_action",
-					"body_loc_key":"test_body_key",
-					"body_loc_args":"[ body0, body1 ]",
-					"title_loc_key":"test_title_key",
-					"title_loc_args":"[ title0, title1 ]",
-					"icon":"test_icon"
-				}';
+            "title":"test_title",
+            "body":"test_body",
+            "android_channel_id":"test_channel_id",
+            "badge":"test_badge",
+            "sound":"test_sound",
+            "tag":"test_tag",
+            "color":"test_color",
+            "click_action":"test_click_action",
+            "body_loc_key":"test_body_key",
+            "body_loc_args":"[ body0, body1 ]",
+            "title_loc_key":"test_title_key",
+            "title_loc_args":"[ title0, title1 ]",
+            "icon":"test_icon"
+        }';
 
         $notificationBuilder = new PayloadNotificationBuilder();
-
         $notificationBuilder->setTitle('test_title')
                     ->setBody('test_body')
                     ->setSound('test_sound')
@@ -114,30 +103,25 @@ class PayloadTest extends FCMTestCase
         $json = json_encode($notificationBuilder->build()->toArray());
         $this->assertJsonStringEqualsJsonString($targetPartial, $json);
 
-        $notificationBuilder
-                    ->setChannelId('test_channel_id')
-                    ->setTag('test_tag')
-                    ->setColor('test_color')
-                    ->setClickAction('test_click_action')
-                    ->setBodyLocationKey('test_body_key')
-                    ->setBodyLocationArgs('[ body0, body1 ]')
-                    ->setTitleLocationKey('test_title_key')
-                    ->setTitleLocationArgs('[ title0, title1 ]')
-                    ->setIcon('test_icon');
+        $notificationBuilder->setChannelId('test_channel_id')
+            ->setTag('test_tag')
+            ->setColor('test_color')
+            ->setClickAction('test_click_action')
+            ->setBodyLocationKey('test_body_key')
+            ->setBodyLocationArgs('[ body0, body1 ]')
+            ->setTitleLocationKey('test_title_key')
+            ->setTitleLocationArgs('[ title0, title1 ]')
+            ->setIcon('test_icon');
 
         $json = json_encode($notificationBuilder->build()->toArray());
         $this->assertJsonStringEqualsJsonString($targetFull, $json);
     }
 
-    /**
-     * @test
-     */
-    public function it_throws_an_invalidoptionsexception_if_the_interval_is_too_big()
+    public function testThrowsExceptionWithInvalidInterval()
     {
-        $this->setExpectedException(InvalidOptionsException::class);
+        $this->expectException(InvalidOptionsException::class);
 
         $optionBuilder = new OptionsBuilder();
         $optionBuilder->setTimeToLive(2419200 * 10);
-
     }
 }

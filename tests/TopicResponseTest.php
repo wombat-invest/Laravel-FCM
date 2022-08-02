@@ -1,22 +1,19 @@
 <?php
 
+namespace WombatInvest\LaravelFCM\Tests;
+
 use GuzzleHttp\Psr7\Response;
-use LaravelFCM\Response\TopicResponse;
+use WombatInvest\LaravelFCM\Message\Topics;
+use WombatInvest\LaravelFCM\Response\TopicResponse;
 
 class TopicsResponseTest extends FCMTestCase
 {
-    /**
-     * @test
-     */
-    public function it_construct_a_topic_response_with_success()
+    public function testTopicResponseSuccess()
     {
-        $topic = new \LaravelFCM\Message\Topics();
+        $topic = new Topics();
         $topic->topic('topicName');
 
-        $response = new Response(200, [], '{ 
-				"message_id": "1234"
-		}');
-
+        $response = new Response(200, [], '{ "message_id": "1234" }');
         $topicResponse = new TopicResponse($response, $topic);
 
         $this->assertTrue($topicResponse->isSuccess());
@@ -24,18 +21,12 @@ class TopicsResponseTest extends FCMTestCase
         $this->assertNull($topicResponse->error());
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_topic_response_with_error()
+    public function testTopicResponseError()
     {
-        $topic = new \LaravelFCM\Message\Topics();
+        $topic = new Topics();
         $topic->topic('topicName');
 
-        $response = new Response(200, [], '{ 
-				"error": "MessageTooBig"
-		}');
-
+        $response = new Response(200, [], '{ "error": "MessageTooBig" }');
         $topicResponse = new TopicResponse($response, $topic);
 
         $this->assertFalse($topicResponse->isSuccess());
@@ -43,18 +34,12 @@ class TopicsResponseTest extends FCMTestCase
         $this->assertEquals('MessageTooBig', $topicResponse->error());
     }
 
-    /**
-     * @test
-     */
-    public function it_construct_a_topic_response_with_error_and_it_should_retry()
+    public function testTopicResponseErrorWithRetry()
     {
-        $topic = new \LaravelFCM\Message\Topics();
+        $topic = new Topics();
         $topic->topic('topicName');
 
-        $response = new Response(200, [], '{ 
-				"error": "TopicsMessageRateExceeded"
-		}');
-
+        $response = new Response(200, [], '{ "error": "TopicsMessageRateExceeded" }');
         $topicResponse = new TopicResponse($response, $topic);
 
         $this->assertFalse($topicResponse->isSuccess());
