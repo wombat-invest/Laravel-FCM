@@ -21,7 +21,7 @@ class PayloadTest extends FCMTestCase
         $targetFull = '{
 					"collapse_key":"collapseKey",
 					"content_available":true,
-					"priority":"high",
+					"priority":"HIGH",
 					"delay_while_idle":true,
 					"time_to_live":200,
 					"restricted_package_name":"customPackageName",
@@ -36,7 +36,7 @@ class PayloadTest extends FCMTestCase
         $json = json_encode($optionBuilder->build()->toArray());
         $this->assertJsonStringEqualsJsonString($targetPartial, $json);
 
-        $optionBuilder->setPriority(OptionsPriorities::high)
+        $optionBuilder->setPriority(OptionsPriorities::HIGH)
             ->setDelayWhileIdle(true)
             ->setDryRun(true)
             ->setRestrictedPackageName('customPackageName')

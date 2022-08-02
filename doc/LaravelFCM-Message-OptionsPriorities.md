@@ -15,17 +15,17 @@ Constants
 ----------
 
 
-### high
+### HIGH
 
-    const high = "high"
-
-
+    const HIGH = "HIGH"
 
 
 
-### normal
 
-    const normal = "normal"
+
+### NORMAL
+
+    const NORMAL = "NORMAL"
 
 
 

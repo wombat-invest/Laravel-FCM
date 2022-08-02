@@ -85,8 +85,8 @@ class OptionsBuilder
     }
 
     /**
-     * Sets the priority of the message. Valid values are "normal" and "high."
-     * By default, messages are sent with normal priority.
+     * Sets the priority of the message. Valid values are "NORMAL" and "HIGH."
+     * By default, messages are sent with NORMAL priority.
      *
      * @param string $priority
      *
@@ -98,7 +98,10 @@ class OptionsBuilder
     public function setPriority($priority)
     {
         if (!OptionsPriorities::isValid($priority)) {
-            throw new InvalidOptionsException('priority is not valid, please refer to the documentation or use the constants of the class "OptionsPriorities"');
+            throw new InvalidOptionsException(
+                'priority is not valid, please refer to the documentation ' .
+                'or use the constants of the class "OptionsPriorities"'
+            );
         }
         $this->priority = $priority;
 
@@ -141,7 +144,8 @@ class OptionsBuilder
     }
 
     /**
-     * When this parameter is set to true, it indicates that the message should not be sent until the device becomes active.
+     * When this parameter is set to true, it indicates that the message
+     * should not be sent until the device becomes active.
      *
      * @param bool $delayWhileIdle
      *
@@ -166,7 +170,9 @@ class OptionsBuilder
     public function setTimeToLive($timeToLive)
     {
         if ($timeToLive < 0 || $timeToLive > 2419200) {
-            throw new InvalidOptionsException("time to live must be between 0 and 2419200, current value is: {$timeToLive}");
+            throw new InvalidOptionsException(
+                "time to live must be between 0 and 2419200, current value is: {$timeToLive}"
+            );
         }
         $this->timeToLive = $timeToLive;
 
@@ -174,7 +180,8 @@ class OptionsBuilder
     }
 
     /**
-     * This parameter specifies the package name of the application where the registration tokens must match in order to receive the message.
+     * This parameter specifies the package name of the application where the registration
+     * tokens must match in order to receive the message.
      *
      * @param string $restrictedPackageName
      *
@@ -290,47 +297,5 @@ class OptionsBuilder
     public function build()
     {
         return new Options($this);
-    }
-}
-
-/**
- * Class OptionsPriorities.
- */
-final class OptionsPriorities
-{
-    /**
-     * @const high priority : iOS, these correspond to APNs priorities 10.
-     */
-    const high = 'high';
-
-    /**
-     * @const normal priority : iOS, these correspond to APNs priorities 5
-     */
-    const normal = 'normal';
-
-    /**
-     * @return array priorities available in fcm
-     *
-     * @throws \ReflectionException
-     */
-    public static function getPriorities()
-    {
-        $class = new ReflectionClass(__CLASS__);
-
-        return $class->getConstants();
-    }
-
-    /**
-     * check if this priority is supported by fcm.
-     *
-     * @param $priority
-     *
-     * @return bool
-     *
-     * @throws \ReflectionException
-     */
-    public static function isValid($priority)
-    {
-        return in_array($priority, static::getPriorities());
     }
 }

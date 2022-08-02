@@ -12,10 +12,10 @@ use LaravelFCM\Response\Exceptions\UnauthorizedRequestException;
  */
 abstract class BaseResponse
 {
-    const SUCCESS = 'success';
-    const FAILURE = 'failure';
-    const ERROR = 'error';
-    const MESSAGE_ID = 'message_id';
+    public const SUCCESS = 'success';
+    public const FAILURE = 'failure';
+    public const ERROR = 'error';
+    public const MESSAGE_ID = 'message_id';
 
     /**
      * @var bool

@@ -17,7 +17,7 @@ use LaravelFCM\Message\PayloadNotification;
  */
 class FCMSender extends HTTPSender
 {
-    const MAX_TOKEN_PER_REQUEST = 1000;
+    public const MAX_TOKEN_PER_REQUEST = 1000;
 
     /**
      * send a downstream message to.
@@ -32,8 +32,12 @@ class FCMSender extends HTTPSender
      *
      * @return DownstreamResponse|null
      */
-    public function sendTo($to, Options $options = null, PayloadNotification $notification = null, PayloadData $data = null)
-    {
+    public function sendTo(
+        $to,
+        Options $options = null,
+        PayloadNotification $notification = null,
+        PayloadData $data = null
+    ) {
         $response = null;
 
         if (is_array($to) && !empty($to)) {
@@ -70,8 +74,12 @@ class FCMSender extends HTTPSender
      *
      * @return GroupResponse
      */
-    public function sendToGroup($notificationKey, Options $options = null, PayloadNotification $notification = null, PayloadData $data = null)
-    {
+    public function sendToGroup(
+        $notificationKey,
+        Options $options = null,
+        PayloadNotification $notification = null,
+        PayloadData $data = null
+    ) {
         $request = new Request($notificationKey, $options, $notification, $data);
 
         $responseGuzzle = $this->post($request);
@@ -89,8 +97,12 @@ class FCMSender extends HTTPSender
      *
      * @return TopicResponse
      */
-    public function sendToTopic(Topics $topics, Options $options = null, PayloadNotification $notification = null, PayloadData $data = null)
-    {
+    public function sendToTopic(
+        Topics $topics,
+        Options $options = null,
+        PayloadNotification $notification = null,
+        PayloadData $data = null
+    ) {
         $request = new Request(null, $options, $notification, $data, $topics);
 
         $responseGuzzle = $this->post($request);

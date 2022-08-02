@@ -12,12 +12,12 @@ use Psr\Http\Message\ResponseInterface;
  */
 class TopicResponse extends BaseResponse implements TopicResponseContract
 {
-    const LIMIT_RATE_TOPICS_EXCEEDED = 'TopicsMessageRateExceeded';
+    public const LIMIT_RATE_TOPICS_EXCEEDED = 'TopicsMessageRateExceeded';
 
     /**
      * @internal
      *
-     * @var string
+     * @var Topics
      */
     protected $topic;
 
@@ -108,7 +108,7 @@ class TopicResponse extends BaseResponse implements TopicResponseContract
 
         $topic = $this->topic->build();
 
-        $logMessage = "notification send to topic: ".json_encode($topic);
+        $logMessage = "notification send to topic: " . json_encode($topic);
         if ($this->messageId) {
             $logMessage .= "with success (message-id : $this->messageId)";
         } else {

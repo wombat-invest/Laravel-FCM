@@ -56,8 +56,13 @@ class Request extends BaseRequest
      * @param PayloadData         $data
      * @param Topics|null         $topic
      */
-    public function __construct($to, Options $options = null, PayloadNotification $notification = null, PayloadData $data = null, Topics $topic = null)
-    {
+    public function __construct(
+        $to,
+        Options $options = null,
+        PayloadNotification $notification = null,
+        PayloadData $data = null,
+        Topics $topic = null
+    ) {
         parent::__construct();
 
         $this->to = $to;

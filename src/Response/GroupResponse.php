@@ -11,7 +11,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 class GroupResponse extends BaseResponse implements GroupResponseContract
 {
-    const FAILED_REGISTRATION_IDS = 'failed_registration_ids';
+    public const FAILED_REGISTRATION_IDS = 'failed_registration_ids';
 
     /**
      * @internal

@@ -11,18 +11,18 @@ use Psr\Http\Message\ResponseInterface;
  */
 class DownstreamResponse extends BaseResponse implements DownstreamResponseContract
 {
-    const MULTICAST_ID = 'multicast_id';
-    const CANONICAL_IDS = 'canonical_ids';
-    const RESULTS = 'results';
+    public const MULTICAST_ID = 'multicast_id';
+    public const CANONICAL_IDS = 'canonical_ids';
+    public const RESULTS = 'results';
 
-    const MISSING_REGISTRATION = 'MissingRegistration';
-    const MESSAGE_ID = 'message_id';
-    const REGISTRATION_ID = 'registration_id';
-    const NOT_REGISTERED = 'NotRegistered';
-    const INVALID_REGISTRATION = 'InvalidRegistration';
-    const UNAVAILABLE = 'Unavailable';
-    const DEVICE_MESSAGE_RATE_EXCEEDED = 'DeviceMessageRateExceeded';
-    const INTERNAL_SERVER_ERROR = 'InternalServerError';
+    public const MISSING_REGISTRATION = 'MissingRegistration';
+    public const MESSAGE_ID = 'message_id';
+    public const REGISTRATION_ID = 'registration_id';
+    public const NOT_REGISTERED = 'NotRegistered';
+    public const INVALID_REGISTRATION = 'InvalidRegistration';
+    public const UNAVAILABLE = 'Unavailable';
+    public const DEVICE_MESSAGE_RATE_EXCEEDED = 'DeviceMessageRateExceeded';
+    public const INTERNAL_SERVER_ERROR = 'InternalServerError';
 
     /**
      * @internal
@@ -158,7 +158,11 @@ class DownstreamResponse extends BaseResponse implements DownstreamResponseContr
         foreach ($responseInJson[self::RESULTS] as $index => $result) {
             if (!$this->isSent($result)) {
                 if (!$this->needToBeModify($index, $result)) {
-                    if (!$this->needToBeDeleted($index, $result) && !$this->needToResend($index, $result) && !$this->checkMissingToken($result)) {
+                    if (
+                        !$this->needToBeDeleted($index, $result) &&
+                        !$this->needToResend($index, $result) &&
+                        !$this->checkMissingToken($result)
+                    ) {
                         $this->needToAddError($index, $result);
                     }
                 }
@@ -175,7 +179,8 @@ class DownstreamResponse extends BaseResponse implements DownstreamResponseContr
      */
     private function needResultParsing($responseInJson)
     {
-        return array_key_exists(self::RESULTS, $responseInJson) && ($this->numberTokensFailure > 0 || $this->numberTokenModify > 0);
+        return array_key_exists(self::RESULTS, $responseInJson) &&
+            ($this->numberTokensFailure > 0 || $this->numberTokenModify > 0);
     }
 
     /**
@@ -221,8 +226,10 @@ class DownstreamResponse extends BaseResponse implements DownstreamResponseContr
      */
     private function needToBeDeleted($index, $result)
     {
-        if (array_key_exists(self::ERROR, $result) &&
-            (in_array(self::NOT_REGISTERED, $result) || in_array(self::INVALID_REGISTRATION, $result))) {
+        if (
+            array_key_exists(self::ERROR, $result) &&
+            (in_array(self::NOT_REGISTERED, $result) || in_array(self::INVALID_REGISTRATION, $result))
+        ) {
             if ($this->tokens[$index]) {
                 $this->tokensToDelete[] = $this->tokens[$index];
             }
@@ -243,7 +250,14 @@ class DownstreamResponse extends BaseResponse implements DownstreamResponseContr
      */
     private function needToResend($index, $result)
     {
-        if (array_key_exists(self::ERROR, $result) && (in_array(self::UNAVAILABLE, $result) || in_array(self::DEVICE_MESSAGE_RATE_EXCEEDED, $result) || in_array(self::INTERNAL_SERVER_ERROR, $result))) {
+        if (
+            array_key_exists(self::ERROR, $result) &&
+            (
+                in_array(self::UNAVAILABLE, $result) ||
+                in_array(self::DEVICE_MESSAGE_RATE_EXCEEDED, $result) ||
+                in_array(self::INTERNAL_SERVER_ERROR, $result)
+            )
+        ) {
             if ($this->tokens[$index]) {
                 $this->tokensToRetry[] = $this->tokens[$index];
             }
@@ -293,10 +307,10 @@ class DownstreamResponse extends BaseResponse implements DownstreamResponseContr
         $logger = new Logger('Laravel-FCM');
         $logger->pushHandler(new StreamHandler(storage_path('logs/laravel-fcm.log')));
 
-        $logMessage = 'notification send to '.count($this->tokens).' devices'.PHP_EOL;
-        $logMessage .= 'success: '.$this->numberTokensSuccess.PHP_EOL;
-        $logMessage .= 'failures: '.$this->numberTokensFailure.PHP_EOL;
-        $logMessage .= 'number of modified token : '.$this->numberTokenModify.PHP_EOL;
+        $logMessage = 'notification send to ' . count($this->tokens) . ' devices' . PHP_EOL;
+        $logMessage .= 'success: ' . $this->numberTokensSuccess . PHP_EOL;
+        $logMessage .= 'failures: ' . $this->numberTokensFailure . PHP_EOL;
+        $logMessage .= 'number of modified token : ' . $this->numberTokenModify . PHP_EOL;
 
         $logger->info($logMessage);
     }
