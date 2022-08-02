@@ -16,6 +16,7 @@ doc/generated/*
 generatedoc.sh
 phpdoc.xml
 build/*
+.phpunit.result.cache
 
 # Editors
 .sublime-workspace
