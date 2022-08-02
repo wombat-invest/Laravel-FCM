@@ -1,4 +1,4 @@
-LaravelFCM\Response\TopicResponse
+WombatInvest\LaravelFCM\Response\TopicResponse
 ===============
 
 Class TopicResponse
@@ -7,9 +7,9 @@ Class TopicResponse
 
 
 * Class name: TopicResponse
-* Namespace: LaravelFCM\Response
-* Parent class: [LaravelFCM\Response\BaseResponse](LaravelFCM-Response-BaseResponse.md)
-* This class implements: [LaravelFCM\Response\TopicResponseContract](LaravelFCM-Response-TopicResponseContract.md)
+* Namespace: WombatInvest\LaravelFCM\Response
+* Parent class: [WombatInvest\LaravelFCM\Response\BaseResponse](WombatInvest\LaravelFCM-Response-BaseResponse.md)
+* This class implements: [WombatInvest\LaravelFCM\Response\TopicResponseContract](WombatInvest\LaravelFCM-Response-TopicResponseContract.md)
 
 
 Constants
@@ -64,14 +64,14 @@ Methods
 
 ### __construct
 
-    mixed LaravelFCM\Response\BaseResponse::__construct(\GuzzleHttp\Psr7\Response $response)
+    mixed WombatInvest\LaravelFCM\Response\BaseResponse::__construct(\GuzzleHttp\Psr7\Response $response)
 
 BaseResponse constructor.
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\BaseResponse](LaravelFCM-Response-BaseResponse.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\BaseResponse](WombatInvest\LaravelFCM-Response-BaseResponse.md)
 
 
 #### Arguments
@@ -81,7 +81,7 @@ BaseResponse constructor.
 
 ### parseResponse
 
-    mixed LaravelFCM\Response\BaseResponse::parseResponse(array $responseInJson)
+    mixed WombatInvest\LaravelFCM\Response\BaseResponse::parseResponse(array $responseInJson)
 
 parse the response
 
@@ -89,7 +89,7 @@ parse the response
 
 * Visibility: **protected**
 * This method is **abstract**.
-* This method is defined by [LaravelFCM\Response\BaseResponse](LaravelFCM-Response-BaseResponse.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\BaseResponse](WombatInvest\LaravelFCM-Response-BaseResponse.md)
 
 
 #### Arguments
@@ -99,7 +99,7 @@ parse the response
 
 ### logResponse
 
-    mixed LaravelFCM\Response\BaseResponse::logResponse()
+    mixed WombatInvest\LaravelFCM\Response\BaseResponse::logResponse()
 
 Log the response
 
@@ -107,28 +107,28 @@ Log the response
 
 * Visibility: **protected**
 * This method is **abstract**.
-* This method is defined by [LaravelFCM\Response\BaseResponse](LaravelFCM-Response-BaseResponse.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\BaseResponse](WombatInvest\LaravelFCM-Response-BaseResponse.md)
 
 
 
 
 ### isSuccess
 
-    boolean LaravelFCM\Response\TopicResponseContract::isSuccess()
+    boolean WombatInvest\LaravelFCM\Response\TopicResponseContract::isSuccess()
 
 true if topic sent with success
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\TopicResponseContract](LaravelFCM-Response-TopicResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\TopicResponseContract](WombatInvest\LaravelFCM-Response-TopicResponseContract.md)
 
 
 
 
 ### error
 
-    string LaravelFCM\Response\TopicResponseContract::error()
+    string WombatInvest\LaravelFCM\Response\TopicResponseContract::error()
 
 return error message
 you should test if it's necessary to resent it
@@ -136,35 +136,35 @@ you should test if it's necessary to resent it
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\TopicResponseContract](LaravelFCM-Response-TopicResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\TopicResponseContract](WombatInvest\LaravelFCM-Response-TopicResponseContract.md)
 
 
 
 
 ### shouldRetry
 
-    boolean LaravelFCM\Response\TopicResponseContract::shouldRetry()
+    boolean WombatInvest\LaravelFCM\Response\TopicResponseContract::shouldRetry()
 
 return true if it's necessary resent it using exponential backoff
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\TopicResponseContract](LaravelFCM-Response-TopicResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\TopicResponseContract](WombatInvest\LaravelFCM-Response-TopicResponseContract.md)
 
 
 
 
 ### isJsonResponse
 
-    mixed LaravelFCM\Response\BaseResponse::isJsonResponse(\GuzzleHttp\Psr7\Response $response)
+    mixed WombatInvest\LaravelFCM\Response\BaseResponse::isJsonResponse(\GuzzleHttp\Psr7\Response $response)
 
 Check if the response given by fcm is parsable
 
 
 
 * Visibility: **private**
-* This method is defined by [LaravelFCM\Response\BaseResponse](LaravelFCM-Response-BaseResponse.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\BaseResponse](WombatInvest\LaravelFCM-Response-BaseResponse.md)
 
 
 #### Arguments

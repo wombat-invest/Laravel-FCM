@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelFCM\Request;
+namespace WombatInvest\LaravelFCM\Request;
 
 /**
  * Class BaseRequest.

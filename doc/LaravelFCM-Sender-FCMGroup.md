@@ -1,4 +1,4 @@
-LaravelFCM\Sender\FCMGroup
+WombatInvest\LaravelFCM\Sender\FCMGroup
 ===============
 
 Class FCMGroup
@@ -7,8 +7,8 @@ Class FCMGroup
 
 
 * Class name: FCMGroup
-* Namespace: LaravelFCM\Sender
-* Parent class: [LaravelFCM\Sender\BaseSender](LaravelFCM-Sender-BaseSender.md)
+* Namespace: WombatInvest\LaravelFCM\Sender
+* Parent class: [WombatInvest\LaravelFCM\Sender\BaseSender](WombatInvest\LaravelFCM-Sender-BaseSender.md)
 
 
 
@@ -83,7 +83,7 @@ Methods
 
 ### createGroup
 
-    null LaravelFCM\Sender\FCMGroup::createGroup($notificationKeyName, array $registrationIds)
+    null WombatInvest\LaravelFCM\Sender\FCMGroup::createGroup($notificationKeyName, array $registrationIds)
 
 Create a group
 
@@ -100,7 +100,7 @@ Create a group
 
 ### addToGroup
 
-    null LaravelFCM\Sender\FCMGroup::addToGroup($notificationKeyName, $notificationKey, array $registrationIds)
+    null WombatInvest\LaravelFCM\Sender\FCMGroup::addToGroup($notificationKeyName, $notificationKey, array $registrationIds)
 
 add registrationId to a existing group
 
@@ -118,7 +118,7 @@ add registrationId to a existing group
 
 ### removeFromGroup
 
-    null LaravelFCM\Sender\FCMGroup::removeFromGroup($notificationKeyName, $notificationKey, array $registeredIds)
+    null WombatInvest\LaravelFCM\Sender\FCMGroup::removeFromGroup($notificationKeyName, $notificationKey, array $registeredIds)
 
 remove registrationId to a existing group
 
@@ -136,7 +136,7 @@ remove registrationId to a existing group
 
 ### getUrl
 
-    string LaravelFCM\Sender\BaseSender::getUrl()
+    string WombatInvest\LaravelFCM\Sender\BaseSender::getUrl()
 
 get the url
 
@@ -144,21 +144,21 @@ get the url
 
 * Visibility: **protected**
 * This method is **abstract**.
-* This method is defined by [LaravelFCM\Sender\BaseSender](LaravelFCM-Sender-BaseSender.md)
+* This method is defined by [WombatInvest\LaravelFCM\Sender\BaseSender](WombatInvest\LaravelFCM-Sender-BaseSender.md)
 
 
 
 
 ### __construct
 
-    mixed LaravelFCM\Sender\BaseSender::__construct()
+    mixed WombatInvest\LaravelFCM\Sender\BaseSender::__construct()
 
 BaseSender constructor.
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Sender\BaseSender](LaravelFCM-Sender-BaseSender.md)
+* This method is defined by [WombatInvest\LaravelFCM\Sender\BaseSender](WombatInvest\LaravelFCM-Sender-BaseSender.md)
 
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelFCM;
+namespace WombatInvest\LaravelFCM;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Manager;

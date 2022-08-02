@@ -1,11 +1,11 @@
 <?php
 
-namespace LaravelFCM\Response;
+namespace WombatInvest\LaravelFCM\Response;
 
 use Psr\Http\Message\ResponseInterface;
-use LaravelFCM\Response\Exceptions\ServerResponseException;
-use LaravelFCM\Response\Exceptions\InvalidRequestException;
-use LaravelFCM\Response\Exceptions\UnauthorizedRequestException;
+use WombatInvest\LaravelFCM\Response\Exceptions\ServerResponseException;
+use WombatInvest\LaravelFCM\Response\Exceptions\InvalidRequestException;
+use WombatInvest\LaravelFCM\Response\Exceptions\UnauthorizedRequestException;
 
 /**
  * Class BaseResponse.

@@ -1,4 +1,4 @@
-LaravelFCM\Test\Mocks\MockDownstreamResponse
+WombatInvest\LaravelFCM\Test\Mocks\MockDownstreamResponse
 ===============
 
 Class MockDownstreamResponse **Only use it for testing**
@@ -7,8 +7,8 @@ Class MockDownstreamResponse **Only use it for testing**
 
 
 * Class name: MockDownstreamResponse
-* Namespace: LaravelFCM\Test\Mocks
-* This class implements: [LaravelFCM\Response\DownstreamResponseContract](LaravelFCM-Response-DownstreamResponseContract.md)
+* Namespace: WombatInvest\LaravelFCM\Test\Mocks
+* This class implements: [WombatInvest\LaravelFCM\Response\DownstreamResponseContract](WombatInvest\LaravelFCM-Response-DownstreamResponseContract.md)
 
 
 
@@ -21,7 +21,7 @@ Methods
 
 ### __construct
 
-    mixed LaravelFCM\Test\Mocks\MockDownstreamResponse::__construct($numberSuccess)
+    mixed WombatInvest\LaravelFCM\Test\Mocks\MockDownstreamResponse::__construct($numberSuccess)
 
 DownstreamResponse constructor.
 
@@ -37,66 +37,66 @@ DownstreamResponse constructor.
 
 ### merge
 
-    mixed LaravelFCM\Response\DownstreamResponseContract::merge(\LaravelFCM\Response\DownstreamResponse $response)
+    mixed WombatInvest\LaravelFCM\Response\DownstreamResponseContract::merge(\WombatInvest\LaravelFCM\Response\DownstreamResponse $response)
 
 Merge two response
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\DownstreamResponseContract](LaravelFCM-Response-DownstreamResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\DownstreamResponseContract](WombatInvest\LaravelFCM-Response-DownstreamResponseContract.md)
 
 
 #### Arguments
-* $response **[LaravelFCM\Response\DownstreamResponse](LaravelFCM-Response-DownstreamResponse.md)**
+* $response **[WombatInvest\LaravelFCM\Response\DownstreamResponse](WombatInvest\LaravelFCM-Response-DownstreamResponse.md)**
 
 
 
 ### numberSuccess
 
-    integer LaravelFCM\Response\DownstreamResponseContract::numberSuccess()
+    integer WombatInvest\LaravelFCM\Response\DownstreamResponseContract::numberSuccess()
 
 Get the number of device reached with success
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\DownstreamResponseContract](LaravelFCM-Response-DownstreamResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\DownstreamResponseContract](WombatInvest\LaravelFCM-Response-DownstreamResponseContract.md)
 
 
 
 
 ### numberFailure
 
-    integer LaravelFCM\Response\DownstreamResponseContract::numberFailure()
+    integer WombatInvest\LaravelFCM\Response\DownstreamResponseContract::numberFailure()
 
 Get the number of device which thrown an error
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\DownstreamResponseContract](LaravelFCM-Response-DownstreamResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\DownstreamResponseContract](WombatInvest\LaravelFCM-Response-DownstreamResponseContract.md)
 
 
 
 
 ### numberModification
 
-    integer LaravelFCM\Response\DownstreamResponseContract::numberModification()
+    integer WombatInvest\LaravelFCM\Response\DownstreamResponseContract::numberModification()
 
 Get the number of device that you need to modify their token
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\DownstreamResponseContract](LaravelFCM-Response-DownstreamResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\DownstreamResponseContract](WombatInvest\LaravelFCM-Response-DownstreamResponseContract.md)
 
 
 
 
 ### addTokenToDelete
 
-    mixed LaravelFCM\Test\Mocks\MockDownstreamResponse::addTokenToDelete($token)
+    mixed WombatInvest\LaravelFCM\Test\Mocks\MockDownstreamResponse::addTokenToDelete($token)
 
 Add a token to delete
 
@@ -112,21 +112,21 @@ Add a token to delete
 
 ### tokensToDelete
 
-    array LaravelFCM\Response\DownstreamResponseContract::tokensToDelete()
+    array WombatInvest\LaravelFCM\Response\DownstreamResponseContract::tokensToDelete()
 
 get token to delete
 
 remove all tokens returned by this method in your database
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\DownstreamResponseContract](LaravelFCM-Response-DownstreamResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\DownstreamResponseContract](WombatInvest\LaravelFCM-Response-DownstreamResponseContract.md)
 
 
 
 
 ### addTokenToModify
 
-    mixed LaravelFCM\Test\Mocks\MockDownstreamResponse::addTokenToModify($oldToken, $newToken)
+    mixed WombatInvest\LaravelFCM\Test\Mocks\MockDownstreamResponse::addTokenToModify($oldToken, $newToken)
 
 Add a token to modify
 
@@ -143,7 +143,7 @@ Add a token to modify
 
 ### tokensToModify
 
-    array LaravelFCM\Response\DownstreamResponseContract::tokensToModify()
+    array WombatInvest\LaravelFCM\Response\DownstreamResponseContract::tokensToModify()
 
 get token to modify
 
@@ -153,14 +153,14 @@ value: new token
 find the old token in your database and replace it with the new one
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\DownstreamResponseContract](LaravelFCM-Response-DownstreamResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\DownstreamResponseContract](WombatInvest\LaravelFCM-Response-DownstreamResponseContract.md)
 
 
 
 
 ### addTokenToRetry
 
-    mixed LaravelFCM\Test\Mocks\MockDownstreamResponse::addTokenToRetry($token)
+    mixed WombatInvest\LaravelFCM\Test\Mocks\MockDownstreamResponse::addTokenToRetry($token)
 
 Add a token to retry
 
@@ -176,21 +176,21 @@ Add a token to retry
 
 ### tokensToRetry
 
-    array LaravelFCM\Response\DownstreamResponseContract::tokensToRetry()
+    array WombatInvest\LaravelFCM\Response\DownstreamResponseContract::tokensToRetry()
 
 Get tokens that you should resend using exponential backoof
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\DownstreamResponseContract](LaravelFCM-Response-DownstreamResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\DownstreamResponseContract](WombatInvest\LaravelFCM-Response-DownstreamResponseContract.md)
 
 
 
 
 ### addTokenWithError
 
-    mixed LaravelFCM\Test\Mocks\MockDownstreamResponse::addTokenWithError($token, $message)
+    mixed WombatInvest\LaravelFCM\Test\Mocks\MockDownstreamResponse::addTokenWithError($token, $message)
 
 Add a token to errors
 
@@ -207,7 +207,7 @@ Add a token to errors
 
 ### tokensWithError
 
-    array LaravelFCM\Response\DownstreamResponseContract::tokensWithError()
+    array WombatInvest\LaravelFCM\Response\DownstreamResponseContract::tokensWithError()
 
 Get tokens that thrown an error
 
@@ -217,14 +217,14 @@ value : error
 In production, remove these tokens from you database
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\DownstreamResponseContract](LaravelFCM-Response-DownstreamResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\DownstreamResponseContract](WombatInvest\LaravelFCM-Response-DownstreamResponseContract.md)
 
 
 
 
 ### setMissingToken
 
-    mixed LaravelFCM\Test\Mocks\MockDownstreamResponse::setMissingToken($hasMissingToken)
+    mixed WombatInvest\LaravelFCM\Test\Mocks\MockDownstreamResponse::setMissingToken($hasMissingToken)
 
 change missing token state
 
@@ -240,7 +240,7 @@ change missing token state
 
 ### hasMissingToken
 
-    boolean LaravelFCM\Response\DownstreamResponseContract::hasMissingToken()
+    boolean WombatInvest\LaravelFCM\Response\DownstreamResponseContract::hasMissingToken()
 
 check if missing tokens was given to the request
 If true, remove all the empty token in your database
@@ -248,7 +248,7 @@ If true, remove all the empty token in your database
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\DownstreamResponseContract](LaravelFCM-Response-DownstreamResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\DownstreamResponseContract](WombatInvest\LaravelFCM-Response-DownstreamResponseContract.md)
 
 
 

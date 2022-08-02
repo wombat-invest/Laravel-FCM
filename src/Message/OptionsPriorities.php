@@ -1,8 +1,8 @@
 <?php
 
-namespace LaravelFCM\Message;
+namespace WombatInvest\LaravelFCM\Message;
 
-use LaravelFCM\Message\Exceptions\InvalidOptionsException;
+use WombatInvest\LaravelFCM\Message\Exceptions\InvalidOptionsException;
 use ReflectionClass;
 
 /**

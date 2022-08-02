@@ -1,4 +1,4 @@
-LaravelFCM\Test\Mocks\MockTopicResponse
+WombatInvest\LaravelFCM\Test\Mocks\MockTopicResponse
 ===============
 
 Class MockTopicResponse **Only use it for testing**
@@ -7,8 +7,8 @@ Class MockTopicResponse **Only use it for testing**
 
 
 * Class name: MockTopicResponse
-* Namespace: LaravelFCM\Test\Mocks
-* This class implements: [LaravelFCM\Response\TopicResponseContract](LaravelFCM-Response-TopicResponseContract.md)
+* Namespace: WombatInvest\LaravelFCM\Test\Mocks
+* This class implements: [WombatInvest\LaravelFCM\Response\TopicResponseContract](WombatInvest\LaravelFCM-Response-TopicResponseContract.md)
 
 
 
@@ -21,7 +21,7 @@ Methods
 
 ### setSuccess
 
-    mixed LaravelFCM\Test\Mocks\MockTopicResponse::setSuccess($messageId)
+    mixed WombatInvest\LaravelFCM\Test\Mocks\MockTopicResponse::setSuccess($messageId)
 
 if success set a message id
 
@@ -37,21 +37,21 @@ if success set a message id
 
 ### isSuccess
 
-    boolean LaravelFCM\Response\TopicResponseContract::isSuccess()
+    boolean WombatInvest\LaravelFCM\Response\TopicResponseContract::isSuccess()
 
 true if topic sent with success
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\TopicResponseContract](LaravelFCM-Response-TopicResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\TopicResponseContract](WombatInvest\LaravelFCM-Response-TopicResponseContract.md)
 
 
 
 
 ### setError
 
-    mixed LaravelFCM\Test\Mocks\MockTopicResponse::setError($error)
+    mixed WombatInvest\LaravelFCM\Test\Mocks\MockTopicResponse::setError($error)
 
 set error
 
@@ -67,7 +67,7 @@ set error
 
 ### error
 
-    string LaravelFCM\Response\TopicResponseContract::error()
+    string WombatInvest\LaravelFCM\Response\TopicResponseContract::error()
 
 return error message
 you should test if it's necessary to resent it
@@ -75,21 +75,21 @@ you should test if it's necessary to resent it
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\TopicResponseContract](LaravelFCM-Response-TopicResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\TopicResponseContract](WombatInvest\LaravelFCM-Response-TopicResponseContract.md)
 
 
 
 
 ### shouldRetry
 
-    boolean LaravelFCM\Response\TopicResponseContract::shouldRetry()
+    boolean WombatInvest\LaravelFCM\Response\TopicResponseContract::shouldRetry()
 
 return true if it's necessary resent it using exponential backoff
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\TopicResponseContract](LaravelFCM-Response-TopicResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\TopicResponseContract](WombatInvest\LaravelFCM-Response-TopicResponseContract.md)
 
 
 

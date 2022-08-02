@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelFCM\Facades;
+namespace WombatInvest\LaravelFCM\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

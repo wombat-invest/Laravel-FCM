@@ -1,8 +1,8 @@
 <?php
 
-namespace LaravelFCM\Sender;
+namespace WombatInvest\LaravelFCM\Sender;
 
-use LaravelFCM\Request\GroupRequest;
+use WombatInvest\LaravelFCM\Request\GroupRequest;
 use Psr\Http\Message\ResponseInterface;
 
 /**

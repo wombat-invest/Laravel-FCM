@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelFCM\Response;
+namespace WombatInvest\LaravelFCM\Response;
 
 /**
  * Interface GroupResponseContract.

@@ -1,10 +1,10 @@
 <?php
 
-namespace LaravelFCM;
+namespace WombatInvest\LaravelFCM;
 
 use Illuminate\Support\Str;
-use LaravelFCM\Sender\FCMGroup;
-use LaravelFCM\Sender\FCMSender;
+use WombatInvest\LaravelFCM\Sender\FCMGroup;
+use WombatInvest\LaravelFCM\Sender\FCMSender;
 use Illuminate\Support\ServiceProvider;
 
 class FCMServiceProvider extends ServiceProvider

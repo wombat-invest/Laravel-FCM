@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelFCM\Response\Exceptions;
+namespace WombatInvest\LaravelFCM\Response\Exceptions;
 
 use Exception;
 use Psr\Http\Message\ResponseInterface;

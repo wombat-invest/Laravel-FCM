@@ -1,9 +1,9 @@
 <?php
 
-namespace LaravelFCM\Response;
+namespace WombatInvest\LaravelFCM\Response;
 
 use Monolog\Logger;
-use LaravelFCM\Message\Topics;
+use WombatInvest\LaravelFCM\Message\Topics;
 use Monolog\Handler\StreamHandler;
 use Psr\Http\Message\ResponseInterface;
 

@@ -24,8 +24,8 @@
     },
     "autoload": {
         "psr-4": {
-            "LaravelFCM\\": "src/",
-            "LaravelFCM\\Mocks\\": "tests/mocks"
+            "WombatInvest\\LaravelFCM\\": "src/",
+            "WombatInvest\\LaravelFCM\\Mocks\\": "tests/mocks"
         }
     },
     "autoload-dev": {
@@ -38,11 +38,11 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelFCM\\FCMServiceProvider"
+                "WombatInvest\\LaravelFCM\\FCMServiceProvider"
             ],
             "aliases": {
-                "FCM": "LaravelFCM\\Facades\\FCM",
-                "FCMGroup": "LaravelFCM\\Facades\\FCMGroup"
+                "FCM": "WombatInvest\\LaravelFCM\\Facades\\FCM",
+                "FCMGroup": "WombatInvest\\LaravelFCM\\Facades\\FCMGroup"
             }
         }
     }

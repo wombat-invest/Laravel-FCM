@@ -1,8 +1,8 @@
 <?php
 
-namespace LaravelFCM\Message;
+namespace WombatInvest\LaravelFCM\Message;
 
-use LaravelFCM\Message\Exceptions\InvalidOptionsException;
+use WombatInvest\LaravelFCM\Message\Exceptions\InvalidOptionsException;
 use ReflectionClass;
 
 /**
@@ -75,7 +75,7 @@ class OptionsBuilder
      *
      * @param string $collapseKey
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      */
     public function setCollapseKey($collapseKey)
     {
@@ -90,7 +90,7 @@ class OptionsBuilder
      *
      * @param string $priority
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      *
      * @throws InvalidOptionsException
      * @throws \ReflectionException
@@ -118,7 +118,7 @@ class OptionsBuilder
      *
      * @param bool $contentAvailable
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      */
     public function setContentAvailable($contentAvailable)
     {
@@ -149,7 +149,7 @@ class OptionsBuilder
      *
      * @param bool $delayWhileIdle
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      */
     public function setDelayWhileIdle($delayWhileIdle)
     {
@@ -163,7 +163,7 @@ class OptionsBuilder
      *
      * @param int $timeToLive (in second) min:0 max:2419200
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      *
      * @throws InvalidOptionsException
      */
@@ -185,7 +185,7 @@ class OptionsBuilder
      *
      * @param string $restrictedPackageName
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      */
     public function setRestrictedPackageName($restrictedPackageName)
     {
@@ -200,7 +200,7 @@ class OptionsBuilder
      *
      * @param bool $isDryRun
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      */
     public function setDryRun($isDryRun)
     {

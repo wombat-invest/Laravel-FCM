@@ -1,11 +1,11 @@
 <?php
 
-namespace LaravelFCM\Request;
+namespace WombatInvest\LaravelFCM\Request;
 
-use LaravelFCM\Message\Topics;
-use LaravelFCM\Message\Options;
-use LaravelFCM\Message\PayloadData;
-use LaravelFCM\Message\PayloadNotification;
+use WombatInvest\LaravelFCM\Message\Topics;
+use WombatInvest\LaravelFCM\Message\Options;
+use WombatInvest\LaravelFCM\Message\PayloadData;
+use WombatInvest\LaravelFCM\Message\PayloadNotification;
 
 /**
  * Class Request.

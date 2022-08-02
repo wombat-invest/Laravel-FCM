@@ -1,9 +1,9 @@
 <?php
 
-namespace LaravelFCM\Message;
+namespace WombatInvest\LaravelFCM\Message;
 
 use Closure;
-use LaravelFCM\Message\Exceptions\NoTopicProvidedException;
+use WombatInvest\LaravelFCM\Message\Exceptions\NoTopicProvidedException;
 
 /**
  * Class Topics.

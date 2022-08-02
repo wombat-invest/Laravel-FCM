@@ -1,4 +1,4 @@
-LaravelFCM\Message\Options
+WombatInvest\LaravelFCM\Message\Options
 ===============
 
 Class Options
@@ -7,7 +7,7 @@ Class Options
 
 
 * Class name: Options
-* Namespace: LaravelFCM\Message
+* Namespace: WombatInvest\LaravelFCM\Message
 * This class implements: Illuminate\Contracts\Support\Arrayable
 
 
@@ -21,7 +21,7 @@ Methods
 
 ### __construct
 
-    mixed LaravelFCM\Message\Options::__construct(\LaravelFCM\Message\OptionsBuilder $builder)
+    mixed WombatInvest\LaravelFCM\Message\Options::__construct(\WombatInvest\LaravelFCM\Message\OptionsBuilder $builder)
 
 Options constructor.
 
@@ -31,13 +31,13 @@ Options constructor.
 
 
 #### Arguments
-* $builder **[LaravelFCM\Message\OptionsBuilder](LaravelFCM-Message-OptionsBuilder.md)**
+* $builder **[WombatInvest\LaravelFCM\Message\OptionsBuilder](WombatInvest\LaravelFCM-Message-OptionsBuilder.md)**
 
 
 
 ### toArray
 
-    array LaravelFCM\Message\Options::toArray()
+    array WombatInvest\LaravelFCM\Message\Options::toArray()
 
 Transform Option to array
 

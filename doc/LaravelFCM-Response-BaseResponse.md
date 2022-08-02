@@ -1,4 +1,4 @@
-LaravelFCM\Response\BaseResponse
+WombatInvest\LaravelFCM\Response\BaseResponse
 ===============
 
 Class BaseResponse
@@ -7,7 +7,7 @@ Class BaseResponse
 
 
 * Class name: BaseResponse
-* Namespace: LaravelFCM\Response
+* Namespace: WombatInvest\LaravelFCM\Response
 * This is an **abstract** class
 
 
@@ -56,7 +56,7 @@ Methods
 
 ### __construct
 
-    mixed LaravelFCM\Response\BaseResponse::__construct(\GuzzleHttp\Psr7\Response $response)
+    mixed WombatInvest\LaravelFCM\Response\BaseResponse::__construct(\GuzzleHttp\Psr7\Response $response)
 
 BaseResponse constructor.
 
@@ -72,7 +72,7 @@ BaseResponse constructor.
 
 ### isJsonResponse
 
-    mixed LaravelFCM\Response\BaseResponse::isJsonResponse(\GuzzleHttp\Psr7\Response $response)
+    mixed WombatInvest\LaravelFCM\Response\BaseResponse::isJsonResponse(\GuzzleHttp\Psr7\Response $response)
 
 Check if the response given by fcm is parsable
 
@@ -88,7 +88,7 @@ Check if the response given by fcm is parsable
 
 ### parseResponse
 
-    mixed LaravelFCM\Response\BaseResponse::parseResponse(array $responseInJson)
+    mixed WombatInvest\LaravelFCM\Response\BaseResponse::parseResponse(array $responseInJson)
 
 parse the response
 
@@ -105,7 +105,7 @@ parse the response
 
 ### logResponse
 
-    mixed LaravelFCM\Response\BaseResponse::logResponse()
+    mixed WombatInvest\LaravelFCM\Response\BaseResponse::logResponse()
 
 Log the response
 
