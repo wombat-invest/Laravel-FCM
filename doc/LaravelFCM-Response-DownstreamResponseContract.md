@@ -1,4 +1,4 @@
-LaravelFCM\Response\DownstreamResponseContract
+WombatInvest\LaravelFCM\Response\DownstreamResponseContract
 ===============
 
 Interface DownstreamResponseContract
@@ -7,7 +7,7 @@ Interface DownstreamResponseContract
 
 
 * Interface name: DownstreamResponseContract
-* Namespace: LaravelFCM\Response
+* Namespace: WombatInvest\LaravelFCM\Response
 * This is an **interface**
 
 
@@ -21,7 +21,7 @@ Methods
 
 ### merge
 
-    mixed LaravelFCM\Response\DownstreamResponseContract::merge(\LaravelFCM\Response\DownstreamResponse $response)
+    mixed WombatInvest\LaravelFCM\Response\DownstreamResponseContract::merge(\WombatInvest\LaravelFCM\Response\DownstreamResponse $response)
 
 Merge two response
 
@@ -31,13 +31,13 @@ Merge two response
 
 
 #### Arguments
-* $response **[LaravelFCM\Response\DownstreamResponse](LaravelFCM-Response-DownstreamResponse.md)**
+* $response **[WombatInvest\LaravelFCM\Response\DownstreamResponse](WombatInvest\LaravelFCM-Response-DownstreamResponse.md)**
 
 
 
 ### numberSuccess
 
-    integer LaravelFCM\Response\DownstreamResponseContract::numberSuccess()
+    integer WombatInvest\LaravelFCM\Response\DownstreamResponseContract::numberSuccess()
 
 Get the number of device reached with success
 
@@ -50,7 +50,7 @@ Get the number of device reached with success
 
 ### numberFailure
 
-    integer LaravelFCM\Response\DownstreamResponseContract::numberFailure()
+    integer WombatInvest\LaravelFCM\Response\DownstreamResponseContract::numberFailure()
 
 Get the number of device which thrown an error
 
@@ -63,7 +63,7 @@ Get the number of device which thrown an error
 
 ### numberModification
 
-    integer LaravelFCM\Response\DownstreamResponseContract::numberModification()
+    integer WombatInvest\LaravelFCM\Response\DownstreamResponseContract::numberModification()
 
 Get the number of device that you need to modify their token
 
@@ -76,7 +76,7 @@ Get the number of device that you need to modify their token
 
 ### tokensToDelete
 
-    array LaravelFCM\Response\DownstreamResponseContract::tokensToDelete()
+    array WombatInvest\LaravelFCM\Response\DownstreamResponseContract::tokensToDelete()
 
 get token to delete
 
@@ -89,7 +89,7 @@ remove all tokens returned by this method in your database
 
 ### tokensToModify
 
-    array LaravelFCM\Response\DownstreamResponseContract::tokensToModify()
+    array WombatInvest\LaravelFCM\Response\DownstreamResponseContract::tokensToModify()
 
 get token to modify
 
@@ -105,7 +105,7 @@ find the old token in your database and replace it with the new one
 
 ### tokensToRetry
 
-    array LaravelFCM\Response\DownstreamResponseContract::tokensToRetry()
+    array WombatInvest\LaravelFCM\Response\DownstreamResponseContract::tokensToRetry()
 
 Get tokens that you should resend using exponential backoof
 
@@ -118,7 +118,7 @@ Get tokens that you should resend using exponential backoof
 
 ### tokensWithError
 
-    array LaravelFCM\Response\DownstreamResponseContract::tokensWithError()
+    array WombatInvest\LaravelFCM\Response\DownstreamResponseContract::tokensWithError()
 
 Get tokens that thrown an error
 
@@ -134,7 +134,7 @@ In production, remove these tokens from you database
 
 ### hasMissingToken
 
-    boolean LaravelFCM\Response\DownstreamResponseContract::hasMissingToken()
+    boolean WombatInvest\LaravelFCM\Response\DownstreamResponseContract::hasMissingToken()
 
 check if missing tokens was given to the request
 If true, remove all the empty token in your database

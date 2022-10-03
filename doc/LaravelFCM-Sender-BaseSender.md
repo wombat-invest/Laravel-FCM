@@ -1,4 +1,4 @@
-LaravelFCM\Sender\BaseSender
+WombatInvest\LaravelFCM\Sender\BaseSender
 ===============
 
 Class BaseSender
@@ -7,7 +7,7 @@ Class BaseSender
 
 
 * Class name: BaseSender
-* Namespace: LaravelFCM\Sender
+* Namespace: WombatInvest\LaravelFCM\Sender
 * This is an **abstract** class
 
 
@@ -57,7 +57,7 @@ Methods
 
 ### __construct
 
-    mixed LaravelFCM\Sender\BaseSender::__construct()
+    mixed WombatInvest\LaravelFCM\Sender\BaseSender::__construct()
 
 BaseSender constructor.
 
@@ -70,7 +70,7 @@ BaseSender constructor.
 
 ### getUrl
 
-    string LaravelFCM\Sender\BaseSender::getUrl()
+    string WombatInvest\LaravelFCM\Sender\BaseSender::getUrl()
 
 get the url
 

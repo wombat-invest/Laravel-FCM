@@ -1,9 +1,9 @@
 <?php
 
-namespace LaravelFCM\Mocks;
+namespace WombatInvest\LaravelFCM\Mocks;
 
-use LaravelFCM\Response\DownstreamResponse;
-use LaravelFCM\Response\DownstreamResponseContract;
+use WombatInvest\LaravelFCM\Response\DownstreamResponse;
+use WombatInvest\LaravelFCM\Response\DownstreamResponseContract;
 
 /**
  * Class MockDownstreamResponse **Only use it for testing**.

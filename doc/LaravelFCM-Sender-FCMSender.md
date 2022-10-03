@@ -1,4 +1,4 @@
-LaravelFCM\Sender\FCMSender
+WombatInvest\LaravelFCM\Sender\FCMSender
 ===============
 
 Class FCMSender
@@ -7,8 +7,8 @@ Class FCMSender
 
 
 * Class name: FCMSender
-* Namespace: LaravelFCM\Sender
-* Parent class: [LaravelFCM\Sender\BaseSender](LaravelFCM-Sender-BaseSender.md)
+* Namespace: WombatInvest\LaravelFCM\Sender
+* Parent class: [WombatInvest\LaravelFCM\Sender\BaseSender](WombatInvest\LaravelFCM-Sender-BaseSender.md)
 
 
 
@@ -67,7 +67,7 @@ Methods
 
 ### sendTo
 
-    \LaravelFCM\Response\DownstreamResponse|null LaravelFCM\Sender\FCMSender::sendTo(String|array $to, \LaravelFCM\Message\Options|null $options, \LaravelFCM\Message\PayloadNotification|null $notification, \LaravelFCM\Message\PayloadData|null $data)
+    \WombatInvest\LaravelFCM\Response\DownstreamResponse|null WombatInvest\LaravelFCM\Sender\FCMSender::sendTo(String|array $to, \WombatInvest\LaravelFCM\Message\Options|null $options, \WombatInvest\LaravelFCM\Message\PayloadNotification|null $notification, \WombatInvest\LaravelFCM\Message\PayloadData|null $data)
 
 send a downstream message to
 
@@ -79,15 +79,15 @@ send a downstream message to
 
 #### Arguments
 * $to **String|array**
-* $options **[LaravelFCM\Message\Options](LaravelFCM-Message-Options.md)|null**
-* $notification **[LaravelFCM\Message\PayloadNotification](LaravelFCM-Message-PayloadNotification.md)|null**
-* $data **[LaravelFCM\Message\PayloadData](LaravelFCM-Message-PayloadData.md)|null**
+* $options **[WombatInvest\LaravelFCM\Message\Options](WombatInvest\LaravelFCM-Message-Options.md)|null**
+* $notification **[WombatInvest\LaravelFCM\Message\PayloadNotification](WombatInvest\LaravelFCM-Message-PayloadNotification.md)|null**
+* $data **[WombatInvest\LaravelFCM\Message\PayloadData](WombatInvest\LaravelFCM-Message-PayloadData.md)|null**
 
 
 
 ### sendToGroup
 
-    \LaravelFCM\Response\GroupResponse LaravelFCM\Sender\FCMSender::sendToGroup($notificationKey, \LaravelFCM\Message\Options|null $options, \LaravelFCM\Message\PayloadNotification|null $notification, \LaravelFCM\Message\PayloadData|null $data)
+    \WombatInvest\LaravelFCM\Response\GroupResponse WombatInvest\LaravelFCM\Sender\FCMSender::sendToGroup($notificationKey, \WombatInvest\LaravelFCM\Message\Options|null $options, \WombatInvest\LaravelFCM\Message\PayloadNotification|null $notification, \WombatInvest\LaravelFCM\Message\PayloadData|null $data)
 
 Send a message to a group of devices identified with them notification key
 
@@ -98,15 +98,15 @@ Send a message to a group of devices identified with them notification key
 
 #### Arguments
 * $notificationKey **mixed**
-* $options **[LaravelFCM\Message\Options](LaravelFCM-Message-Options.md)|null**
-* $notification **[LaravelFCM\Message\PayloadNotification](LaravelFCM-Message-PayloadNotification.md)|null**
-* $data **[LaravelFCM\Message\PayloadData](LaravelFCM-Message-PayloadData.md)|null**
+* $options **[WombatInvest\LaravelFCM\Message\Options](WombatInvest\LaravelFCM-Message-Options.md)|null**
+* $notification **[WombatInvest\LaravelFCM\Message\PayloadNotification](WombatInvest\LaravelFCM-Message-PayloadNotification.md)|null**
+* $data **[WombatInvest\LaravelFCM\Message\PayloadData](WombatInvest\LaravelFCM-Message-PayloadData.md)|null**
 
 
 
 ### sendToTopic
 
-    \LaravelFCM\Response\TopicResponse LaravelFCM\Sender\FCMSender::sendToTopic(\LaravelFCM\Message\Topics $topics, \LaravelFCM\Message\Options|null $options, \LaravelFCM\Message\PayloadNotification|null $notification, \LaravelFCM\Message\PayloadData|null $data)
+    \WombatInvest\LaravelFCM\Response\TopicResponse WombatInvest\LaravelFCM\Sender\FCMSender::sendToTopic(\WombatInvest\LaravelFCM\Message\Topics $topics, \WombatInvest\LaravelFCM\Message\Options|null $options, \WombatInvest\LaravelFCM\Message\PayloadNotification|null $notification, \WombatInvest\LaravelFCM\Message\PayloadData|null $data)
 
 Send message devices registered at a or more topics
 
@@ -116,16 +116,16 @@ Send message devices registered at a or more topics
 
 
 #### Arguments
-* $topics **[LaravelFCM\Message\Topics](LaravelFCM-Message-Topics.md)**
-* $options **[LaravelFCM\Message\Options](LaravelFCM-Message-Options.md)|null**
-* $notification **[LaravelFCM\Message\PayloadNotification](LaravelFCM-Message-PayloadNotification.md)|null**
-* $data **[LaravelFCM\Message\PayloadData](LaravelFCM-Message-PayloadData.md)|null**
+* $topics **[WombatInvest\LaravelFCM\Message\Topics](WombatInvest\LaravelFCM-Message-Topics.md)**
+* $options **[WombatInvest\LaravelFCM\Message\Options](WombatInvest\LaravelFCM-Message-Options.md)|null**
+* $notification **[WombatInvest\LaravelFCM\Message\PayloadNotification](WombatInvest\LaravelFCM-Message-PayloadNotification.md)|null**
+* $data **[WombatInvest\LaravelFCM\Message\PayloadData](WombatInvest\LaravelFCM-Message-PayloadData.md)|null**
 
 
 
 ### getUrl
 
-    string LaravelFCM\Sender\BaseSender::getUrl()
+    string WombatInvest\LaravelFCM\Sender\BaseSender::getUrl()
 
 get the url
 
@@ -133,21 +133,21 @@ get the url
 
 * Visibility: **protected**
 * This method is **abstract**.
-* This method is defined by [LaravelFCM\Sender\BaseSender](LaravelFCM-Sender-BaseSender.md)
+* This method is defined by [WombatInvest\LaravelFCM\Sender\BaseSender](WombatInvest\LaravelFCM-Sender-BaseSender.md)
 
 
 
 
 ### __construct
 
-    mixed LaravelFCM\Sender\BaseSender::__construct()
+    mixed WombatInvest\LaravelFCM\Sender\BaseSender::__construct()
 
 BaseSender constructor.
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Sender\BaseSender](LaravelFCM-Sender-BaseSender.md)
+* This method is defined by [WombatInvest\LaravelFCM\Sender\BaseSender](WombatInvest\LaravelFCM-Sender-BaseSender.md)
 
 
 

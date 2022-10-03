@@ -1,10 +1,10 @@
 <?php
 
-namespace LaravelFCM;
+namespace WombatInvest\LaravelFCM;
 
 use Illuminate\Support\Str;
-use LaravelFCM\Sender\FCMGroup;
-use LaravelFCM\Sender\FCMSender;
+use WombatInvest\LaravelFCM\Sender\FCMGroup;
+use WombatInvest\LaravelFCM\Sender\FCMSender;
 use Illuminate\Support\ServiceProvider;
 
 class FCMServiceProvider extends ServiceProvider
@@ -17,15 +17,15 @@ class FCMServiceProvider extends ServiceProvider
             $this->app->configure('fcm');
         } else {
             $this->publishes([
-                __DIR__.'/../config/fcm.php' => config_path('fcm.php'),
+                __DIR__ . '/../config/fcm.php' => config_path('fcm.php'),
             ]);
         }
     }
 
     public function register()
     {
-		if (!Str::contains($this->app->version(), 'Lumen')) {
-            $this->mergeConfigFrom(__DIR__.'/../config/fcm.php', 'fcm');
+        if (!Str::contains($this->app->version(), 'Lumen')) {
+            $this->mergeConfigFrom(__DIR__ . '/../config/fcm.php', 'fcm');
         }
 
         $this->app->singleton('fcm.client', function ($app) {

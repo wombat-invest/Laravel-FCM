@@ -1,4 +1,4 @@
-LaravelFCM\Message\PayloadNotification
+WombatInvest\LaravelFCM\Message\PayloadNotification
 ===============
 
 Class PayloadNotification
@@ -7,7 +7,7 @@ Class PayloadNotification
 
 
 * Class name: PayloadNotification
-* Namespace: LaravelFCM\Message
+* Namespace: WombatInvest\LaravelFCM\Message
 * This class implements: Illuminate\Contracts\Support\Arrayable
 
 
@@ -21,7 +21,7 @@ Methods
 
 ### __construct
 
-    mixed LaravelFCM\Message\PayloadNotification::__construct(\LaravelFCM\Message\PayloadNotificationBuilder $builder)
+    mixed WombatInvest\LaravelFCM\Message\PayloadNotification::__construct(\WombatInvest\LaravelFCM\Message\PayloadNotificationBuilder $builder)
 
 PayloadNotification constructor.
 
@@ -31,13 +31,13 @@ PayloadNotification constructor.
 
 
 #### Arguments
-* $builder **[LaravelFCM\Message\PayloadNotificationBuilder](LaravelFCM-Message-PayloadNotificationBuilder.md)**
+* $builder **[WombatInvest\LaravelFCM\Message\PayloadNotificationBuilder](WombatInvest\LaravelFCM-Message-PayloadNotificationBuilder.md)**
 
 
 
 ### toArray
 
-    array LaravelFCM\Message\PayloadNotification::toArray()
+    array WombatInvest\LaravelFCM\Message\PayloadNotification::toArray()
 
 convert PayloadNotification to array
 

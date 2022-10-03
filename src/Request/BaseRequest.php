@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelFCM\Request;
+namespace WombatInvest\LaravelFCM\Request;
 
 /**
  * Class BaseRequest.
@@ -37,7 +37,7 @@ abstract class BaseRequest
     protected function buildRequestHeader()
     {
         return [
-            'Authorization' => 'key='.$this->config['server_key'],
+            'Authorization' => 'key=' . $this->config['server_key'],
             'Content-Type' => 'application/json',
             'project_id' => $this->config['sender_id'],
         ];

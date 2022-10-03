@@ -1,4 +1,4 @@
-LaravelFCM\Test\Mocks\MockGroupResponse
+WombatInvest\LaravelFCM\Test\Mocks\MockGroupResponse
 ===============
 
 Class MockGroupResponse **Only use it for testing**
@@ -7,8 +7,8 @@ Class MockGroupResponse **Only use it for testing**
 
 
 * Class name: MockGroupResponse
-* Namespace: LaravelFCM\Test\Mocks
-* This class implements: [LaravelFCM\Response\GroupResponseContract](LaravelFCM-Response-GroupResponseContract.md)
+* Namespace: WombatInvest\LaravelFCM\Test\Mocks
+* This class implements: [WombatInvest\LaravelFCM\Response\GroupResponseContract](WombatInvest\LaravelFCM-Response-GroupResponseContract.md)
 
 
 
@@ -21,7 +21,7 @@ Methods
 
 ### setNumberSuccess
 
-    mixed LaravelFCM\Test\Mocks\MockGroupResponse::setNumberSuccess($numberSuccess)
+    mixed WombatInvest\LaravelFCM\Test\Mocks\MockGroupResponse::setNumberSuccess($numberSuccess)
 
 set number of success
 
@@ -37,21 +37,21 @@ set number of success
 
 ### numberSuccess
 
-    integer LaravelFCM\Response\GroupResponseContract::numberSuccess()
+    integer WombatInvest\LaravelFCM\Response\GroupResponseContract::numberSuccess()
 
 Get the number of device reached with success
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\GroupResponseContract](LaravelFCM-Response-GroupResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\GroupResponseContract](WombatInvest\LaravelFCM-Response-GroupResponseContract.md)
 
 
 
 
 ### setNumberFailure
 
-    mixed LaravelFCM\Test\Mocks\MockGroupResponse::setNumberFailure($numberFailures)
+    mixed WombatInvest\LaravelFCM\Test\Mocks\MockGroupResponse::setNumberFailure($numberFailures)
 
 set number of failures
 
@@ -67,21 +67,21 @@ set number of failures
 
 ### numberFailure
 
-    integer LaravelFCM\Response\GroupResponseContract::numberFailure()
+    integer WombatInvest\LaravelFCM\Response\GroupResponseContract::numberFailure()
 
 Get the number of device which thrown an error
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\GroupResponseContract](LaravelFCM-Response-GroupResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\GroupResponseContract](WombatInvest\LaravelFCM-Response-GroupResponseContract.md)
 
 
 
 
 ### addTokenFailed
 
-    mixed LaravelFCM\Test\Mocks\MockGroupResponse::addTokenFailed($tokenFailed)
+    mixed WombatInvest\LaravelFCM\Test\Mocks\MockGroupResponse::addTokenFailed($tokenFailed)
 
 add a token to the failed list
 
@@ -97,14 +97,14 @@ add a token to the failed list
 
 ### tokensFailed
 
-    array LaravelFCM\Response\GroupResponseContract::tokensFailed()
+    array WombatInvest\LaravelFCM\Response\GroupResponseContract::tokensFailed()
 
 Get all token in group that fcm cannot reach
 
 
 
 * Visibility: **public**
-* This method is defined by [LaravelFCM\Response\GroupResponseContract](LaravelFCM-Response-GroupResponseContract.md)
+* This method is defined by [WombatInvest\LaravelFCM\Response\GroupResponseContract](WombatInvest\LaravelFCM-Response-GroupResponseContract.md)
 
 
 

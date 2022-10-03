@@ -1,4 +1,4 @@
-LaravelFCM\Message\Exceptions\NoTopicProvidedException
+WombatInvest\LaravelFCM\Message\Exceptions\NoTopicProvidedException
 ===============
 
 Class NoTopicProvidedException
@@ -7,7 +7,7 @@ Class NoTopicProvidedException
 
 
 * Class name: NoTopicProvidedException
-* Namespace: LaravelFCM\Message\Exceptions
+* Namespace: WombatInvest\LaravelFCM\Message\Exceptions
 * Parent class: Exception
 
 

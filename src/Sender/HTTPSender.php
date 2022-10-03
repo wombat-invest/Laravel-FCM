@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelFCM\Sender;
+namespace WombatInvest\LaravelFCM\Sender;
 
 use GuzzleHttp\ClientInterface;
 

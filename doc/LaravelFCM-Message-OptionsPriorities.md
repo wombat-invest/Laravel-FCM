@@ -1,4 +1,4 @@
-LaravelFCM\Message\OptionsPriorities
+WombatInvest\LaravelFCM\Message\OptionsPriorities
 ===============
 
 Class OptionsPriorities
@@ -7,7 +7,7 @@ Class OptionsPriorities
 
 
 * Class name: OptionsPriorities
-* Namespace: LaravelFCM\Message
+* Namespace: WombatInvest\LaravelFCM\Message
 
 
 
@@ -15,17 +15,17 @@ Constants
 ----------
 
 
-### high
+### HIGH
 
-    const high = "high"
-
-
+    const HIGH = "HIGH"
 
 
 
-### normal
 
-    const normal = "normal"
+
+### NORMAL
+
+    const NORMAL = "NORMAL"
 
 
 
@@ -39,7 +39,7 @@ Methods
 
 ### getPriorities
 
-    array LaravelFCM\Message\OptionsPriorities::getPriorities()
+    array WombatInvest\LaravelFCM\Message\OptionsPriorities::getPriorities()
 
 
 
@@ -53,7 +53,7 @@ Methods
 
 ### isValid
 
-    boolean LaravelFCM\Message\OptionsPriorities::isValid($priority)
+    boolean WombatInvest\LaravelFCM\Message\OptionsPriorities::isValid($priority)
 
 check if this priority is supported by fcm
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace LaravelFCM\Sender;
+namespace WombatInvest\LaravelFCM\Sender;
 
-use LaravelFCM\Request\GroupRequest;
+use WombatInvest\LaravelFCM\Request\GroupRequest;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -10,9 +10,9 @@ use Psr\Http\Message\ResponseInterface;
  */
 class FCMGroup extends HTTPSender
 {
-    const CREATE = 'create';
-    const ADD = 'add';
-    const REMOVE = 'remove';
+    public const CREATE = 'create';
+    public const ADD = 'add';
+    public const REMOVE = 'remove';
 
     /**
      * Create a group.

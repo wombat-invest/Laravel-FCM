@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelFCM\Response;
+namespace WombatInvest\LaravelFCM\Response;
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -11,7 +11,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 class GroupResponse extends BaseResponse implements GroupResponseContract
 {
-    const FAILED_REGISTRATION_IDS = 'failed_registration_ids';
+    public const FAILED_REGISTRATION_IDS = 'failed_registration_ids';
 
     /**
      * @internal

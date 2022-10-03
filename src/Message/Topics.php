@@ -1,9 +1,9 @@
 <?php
 
-namespace LaravelFCM\Message;
+namespace WombatInvest\LaravelFCM\Message;
 
 use Closure;
-use LaravelFCM\Message\Exceptions\NoTopicProvidedException;
+use WombatInvest\LaravelFCM\Message\Exceptions\NoTopicProvidedException;
 
 /**
  * Class Topics.
@@ -157,7 +157,7 @@ class Topics
 
         if ($this->hasOnlyOneTopic()) {
             foreach ($this->conditions[0] as $topic) {
-                return '/topics/'.$topic;
+                return '/topics/' . $topic;
             }
         }
 

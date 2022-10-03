@@ -1,4 +1,4 @@
-LaravelFCM\Message\OptionsBuilder
+WombatInvest\LaravelFCM\Message\OptionsBuilder
 ===============
 
 Builder for creation of options used by FCM
@@ -7,7 +7,7 @@ Class OptionsBuilder
 
 
 * Class name: OptionsBuilder
-* Namespace: LaravelFCM\Message
+* Namespace: WombatInvest\LaravelFCM\Message
 
 
 
@@ -21,7 +21,7 @@ Methods
 
 ### setCollapseKey
 
-    \LaravelFCM\Message\OptionsBuilder LaravelFCM\Message\OptionsBuilder::setCollapseKey(String $collapseKey)
+    \WombatInvest\LaravelFCM\Message\OptionsBuilder WombatInvest\LaravelFCM\Message\OptionsBuilder::setCollapseKey(String $collapseKey)
 
 This parameter identifies a group of messages
 A maximum of 4 different collapse keys is allowed at any given time.
@@ -38,7 +38,7 @@ A maximum of 4 different collapse keys is allowed at any given time.
 
 ### setPriority
 
-    \LaravelFCM\Message\OptionsBuilder LaravelFCM\Message\OptionsBuilder::setPriority(String $priority)
+    \WombatInvest\LaravelFCM\Message\OptionsBuilder WombatInvest\LaravelFCM\Message\OptionsBuilder::setPriority(String $priority)
 
 Sets the priority of the message. Valid values are "normal" and "high."
 By default, messages are sent with normal priority
@@ -55,7 +55,7 @@ By default, messages are sent with normal priority
 
 ### setContentAvailable
 
-    \LaravelFCM\Message\OptionsBuilder LaravelFCM\Message\OptionsBuilder::setContentAvailable(boolean $contentAvailable)
+    \WombatInvest\LaravelFCM\Message\OptionsBuilder WombatInvest\LaravelFCM\Message\OptionsBuilder::setContentAvailable(boolean $contentAvailable)
 
 support only Android and Ios
 
@@ -74,7 +74,7 @@ On Chrome, currently not supported.
 
 ### setDelayWhileIdle
 
-    \LaravelFCM\Message\OptionsBuilder LaravelFCM\Message\OptionsBuilder::setDelayWhileIdle(boolean $delayWhileIdle)
+    \WombatInvest\LaravelFCM\Message\OptionsBuilder WombatInvest\LaravelFCM\Message\OptionsBuilder::setDelayWhileIdle(boolean $delayWhileIdle)
 
 When this parameter is set to true, it indicates that the message should not be sent until the device becomes active.
 
@@ -90,7 +90,7 @@ When this parameter is set to true, it indicates that the message should not be 
 
 ### setTimeToLive
 
-    \LaravelFCM\Message\OptionsBuilder LaravelFCM\Message\OptionsBuilder::setTimeToLive(integer $timeToLive)
+    \WombatInvest\LaravelFCM\Message\OptionsBuilder WombatInvest\LaravelFCM\Message\OptionsBuilder::setTimeToLive(integer $timeToLive)
 
 This parameter specifies how long the message should be kept in FCM storage if the device is offline
 
@@ -106,7 +106,7 @@ This parameter specifies how long the message should be kept in FCM storage if t
 
 ### setRestrictedPackageName
 
-    \LaravelFCM\Message\OptionsBuilder LaravelFCM\Message\OptionsBuilder::setRestrictedPackageName(string $restrictedPackageName)
+    \WombatInvest\LaravelFCM\Message\OptionsBuilder WombatInvest\LaravelFCM\Message\OptionsBuilder::setRestrictedPackageName(string $restrictedPackageName)
 
 This parameter specifies the package name of the application where the registration tokens must match in order to receive the message.
 
@@ -122,7 +122,7 @@ This parameter specifies the package name of the application where the registrat
 
 ### setDryRun
 
-    \LaravelFCM\Message\OptionsBuilder LaravelFCM\Message\OptionsBuilder::setDryRun(boolean $isDryRun)
+    \WombatInvest\LaravelFCM\Message\OptionsBuilder WombatInvest\LaravelFCM\Message\OptionsBuilder::setDryRun(boolean $isDryRun)
 
 This parameter, when set to true, allows developers to test a request without actually sending a message.
 
@@ -138,7 +138,7 @@ It should only be used for the development
 
 ### getCollapseKey
 
-    null|string LaravelFCM\Message\OptionsBuilder::getCollapseKey()
+    null|string WombatInvest\LaravelFCM\Message\OptionsBuilder::getCollapseKey()
 
 Get the collapseKey
 
@@ -151,7 +151,7 @@ Get the collapseKey
 
 ### getPriority
 
-    null|string LaravelFCM\Message\OptionsBuilder::getPriority()
+    null|string WombatInvest\LaravelFCM\Message\OptionsBuilder::getPriority()
 
 Get the priority
 
@@ -164,7 +164,7 @@ Get the priority
 
 ### isContentAvailable
 
-    boolean LaravelFCM\Message\OptionsBuilder::isContentAvailable()
+    boolean WombatInvest\LaravelFCM\Message\OptionsBuilder::isContentAvailable()
 
 is content available
 
@@ -177,7 +177,7 @@ is content available
 
 ### isDelayWhileIdle
 
-    boolean LaravelFCM\Message\OptionsBuilder::isDelayWhileIdle()
+    boolean WombatInvest\LaravelFCM\Message\OptionsBuilder::isDelayWhileIdle()
 
 is delay white idle
 
@@ -190,7 +190,7 @@ is delay white idle
 
 ### getTimeToLive
 
-    null|integer LaravelFCM\Message\OptionsBuilder::getTimeToLive()
+    null|integer WombatInvest\LaravelFCM\Message\OptionsBuilder::getTimeToLive()
 
 get time to live
 
@@ -203,7 +203,7 @@ get time to live
 
 ### getRestrictedPackageName
 
-    null|string LaravelFCM\Message\OptionsBuilder::getRestrictedPackageName()
+    null|string WombatInvest\LaravelFCM\Message\OptionsBuilder::getRestrictedPackageName()
 
 get restricted package name
 
@@ -216,7 +216,7 @@ get restricted package name
 
 ### isDryRun
 
-    boolean LaravelFCM\Message\OptionsBuilder::isDryRun()
+    boolean WombatInvest\LaravelFCM\Message\OptionsBuilder::isDryRun()
 
 is dry run
 
@@ -229,7 +229,7 @@ is dry run
 
 ### build
 
-    \LaravelFCM\Message\Options LaravelFCM\Message\OptionsBuilder::build()
+    \WombatInvest\LaravelFCM\Message\Options WombatInvest\LaravelFCM\Message\OptionsBuilder::build()
 
 build an instance of Options
 

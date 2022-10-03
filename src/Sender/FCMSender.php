@@ -1,23 +1,23 @@
 <?php
 
-namespace LaravelFCM\Sender;
+namespace WombatInvest\LaravelFCM\Sender;
 
-use LaravelFCM\Message\Topics;
-use LaravelFCM\Request\Request;
-use LaravelFCM\Message\Options;
-use LaravelFCM\Message\PayloadData;
-use LaravelFCM\Response\GroupResponse;
-use LaravelFCM\Response\TopicResponse;
+use WombatInvest\LaravelFCM\Message\Topics;
+use WombatInvest\LaravelFCM\Request\Request;
+use WombatInvest\LaravelFCM\Message\Options;
+use WombatInvest\LaravelFCM\Message\PayloadData;
+use WombatInvest\LaravelFCM\Response\GroupResponse;
+use WombatInvest\LaravelFCM\Response\TopicResponse;
 use GuzzleHttp\Exception\ClientException;
-use LaravelFCM\Response\DownstreamResponse;
-use LaravelFCM\Message\PayloadNotification;
+use WombatInvest\LaravelFCM\Response\DownstreamResponse;
+use WombatInvest\LaravelFCM\Message\PayloadNotification;
 
 /**
  * Class FCMSender.
  */
 class FCMSender extends HTTPSender
 {
-    const MAX_TOKEN_PER_REQUEST = 1000;
+    public const MAX_TOKEN_PER_REQUEST = 1000;
 
     /**
      * send a downstream message to.
@@ -32,8 +32,12 @@ class FCMSender extends HTTPSender
      *
      * @return DownstreamResponse|null
      */
-    public function sendTo($to, Options $options = null, PayloadNotification $notification = null, PayloadData $data = null)
-    {
+    public function sendTo(
+        $to,
+        Options $options = null,
+        PayloadNotification $notification = null,
+        PayloadData $data = null
+    ) {
         $response = null;
 
         if (is_array($to) && !empty($to)) {
@@ -70,8 +74,12 @@ class FCMSender extends HTTPSender
      *
      * @return GroupResponse
      */
-    public function sendToGroup($notificationKey, Options $options = null, PayloadNotification $notification = null, PayloadData $data = null)
-    {
+    public function sendToGroup(
+        $notificationKey,
+        Options $options = null,
+        PayloadNotification $notification = null,
+        PayloadData $data = null
+    ) {
         $request = new Request($notificationKey, $options, $notification, $data);
 
         $responseGuzzle = $this->post($request);
@@ -89,8 +97,12 @@ class FCMSender extends HTTPSender
      *
      * @return TopicResponse
      */
-    public function sendToTopic(Topics $topics, Options $options = null, PayloadNotification $notification = null, PayloadData $data = null)
-    {
+    public function sendToTopic(
+        Topics $topics,
+        Options $options = null,
+        PayloadNotification $notification = null,
+        PayloadData $data = null
+    ) {
         $request = new Request(null, $options, $notification, $data, $topics);
 
         $responseGuzzle = $this->post($request);
@@ -101,7 +113,7 @@ class FCMSender extends HTTPSender
     /**
      * @internal
      *
-     * @param \LaravelFCM\Request\Request $request
+     * @param \WombatInvest\LaravelFCM\Request\Request $request
      *
      * @return null|\Psr\Http\Message\ResponseInterface
      */

@@ -1,4 +1,4 @@
-LaravelFCM\Message\PayloadDataBuilder
+WombatInvest\LaravelFCM\Message\PayloadDataBuilder
 ===============
 
 Class PayloadDataBuilder
@@ -7,7 +7,7 @@ Official google documentation :
 
 
 * Class name: PayloadDataBuilder
-* Namespace: LaravelFCM\Message
+* Namespace: WombatInvest\LaravelFCM\Message
 
 
 
@@ -21,7 +21,7 @@ Methods
 
 ### addData
 
-    \LaravelFCM\Message\PayloadDataBuilder LaravelFCM\Message\PayloadDataBuilder::addData(array $data)
+    \WombatInvest\LaravelFCM\Message\PayloadDataBuilder WombatInvest\LaravelFCM\Message\PayloadDataBuilder::addData(array $data)
 
 add data to existing data
 
@@ -37,7 +37,7 @@ add data to existing data
 
 ### setData
 
-    \LaravelFCM\Message\PayloadDataBuilder LaravelFCM\Message\PayloadDataBuilder::setData(array $data)
+    \WombatInvest\LaravelFCM\Message\PayloadDataBuilder WombatInvest\LaravelFCM\Message\PayloadDataBuilder::setData(array $data)
 
 erase data with new data
 
@@ -53,7 +53,7 @@ erase data with new data
 
 ### removeAllData
 
-    mixed LaravelFCM\Message\PayloadDataBuilder::removeAllData()
+    mixed WombatInvest\LaravelFCM\Message\PayloadDataBuilder::removeAllData()
 
 Remove all data
 
@@ -66,7 +66,7 @@ Remove all data
 
 ### getData
 
-    array LaravelFCM\Message\PayloadDataBuilder::getData()
+    array WombatInvest\LaravelFCM\Message\PayloadDataBuilder::getData()
 
 return data
 
@@ -79,7 +79,7 @@ return data
 
 ### build
 
-    \LaravelFCM\Message\PayloadData LaravelFCM\Message\PayloadDataBuilder::build()
+    \WombatInvest\LaravelFCM\Message\PayloadData WombatInvest\LaravelFCM\Message\PayloadDataBuilder::build()
 
 generate a PayloadData
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelFCM\Message;
+namespace WombatInvest\LaravelFCM\Message;
 
 use Illuminate\Contracts\Support\Arrayable;
 

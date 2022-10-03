@@ -1,116 +1,92 @@
 <?php
 
+namespace WombatInvest\LaravelFCM\Tests;
+
 use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Response;
-use LaravelFCM\Message\Topics;
-use LaravelFCM\Sender\FCMSender;
-use LaravelFCM\Message\Exceptions\NoTopicProvidedException;
+use Mockery\MockInterface;
+use WombatInvest\LaravelFCM\Message\Topics;
+use WombatInvest\LaravelFCM\Sender\FCMSender;
+use WombatInvest\LaravelFCM\Message\Exceptions\NoTopicProvidedException;
 
 class TopicsTest extends FCMTestCase
 {
-    /**
-     * @test
-     */
-    public function it_throw_an_exception_if_no_topic_is_provided()
+    public function testThrowsExceptionIfNoTopicProvided()
     {
-        $topics = new Topics();
+        $this->expectException(NoTopicProvidedException::class);
 
-        $this->setExpectedException(NoTopicProvidedException::class);
+        $topics = new Topics();
         $topics->build();
     }
 
-    /**
-     * @test
-     */
-    public function it_has_only_one_topic()
+    public function testOneTopic()
     {
         $target = '/topics/myTopic';
 
         $topics = new Topics();
-
         $topics->topic('myTopic');
 
         $this->assertEquals($target, $topics->build());
     }
 
-    /**
-     * @test
-     */
-    public function it_has_two_topics_and()
+    public function testAndCondition()
     {
-        $target = [
-            'condition' => "'firstTopic' in topics && 'secondTopic' in topics",
-        ];
+        $target = ['condition' => "'firstTopic' in topics && 'secondTopic' in topics"];
 
         $topics = new Topics();
-
         $topics->topic('firstTopic')->andTopic('secondTopic');
 
         $this->assertEquals($target, $topics->build());
     }
 
-    /**
-     * @test
-     */
-    public function it_has_two_topics_or()
+    public function testOrCondition()
     {
-        $target = [
-            'condition' => "'firstTopic' in topics || 'secondTopic' in topics",
-        ];
+        $target = ['condition' => "'firstTopic' in topics || 'secondTopic' in topics"];
 
         $topics = new Topics();
-
         $topics->topic('firstTopic')->orTopic('secondTopic');
 
         $this->assertEquals($target, $topics->build());
     }
 
-    /**
-     * @test
-     */
-    public function it_has_two_topics_or_and_one_and()
+    public function testOrWithAndCondition()
     {
-        $target = [
-            'condition' => "'firstTopic' in topics || 'secondTopic' in topics && 'thirdTopic' in topics",
-        ];
+        $target = ['condition' => "'firstTopic' in topics || 'secondTopic' in topics && 'thirdTopic' in topics"];
 
         $topics = new Topics();
-
         $topics->topic('firstTopic')->orTopic('secondTopic')->andTopic('thirdTopic');
 
         $this->assertEquals($target, $topics->build());
     }
 
-    /**
-     * @test
-     */
-    public function it_has_a_complex_topic_condition()
+    public function testComplexCondition()
     {
         $target = [
-            'condition' => "'TopicA' in topics && ('TopicB' in topics || 'TopicC' in topics) || ('TopicD' in topics && 'TopicE' in topics)",
+            'condition' => "'TopicA' in topics && " .
+                "('TopicB' in topics || 'TopicC' in topics) || " .
+                "('TopicD' in topics && 'TopicE' in topics)"
+            ,
         ];
 
         $topics = new Topics();
-
         $topics->topic('TopicA')
-               ->andTopic(function ($condition) {
-                   $condition->topic('TopicB')->orTopic('TopicC');
-               })
-               ->orTopic(function ($condition) {
-                   $condition->topic('TopicD')->andTopic('TopicE');
-               });
+            ->andTopic(function ($condition) {
+                $condition->topic('TopicB')->orTopic('TopicC');
+            })
+            ->orTopic(function ($condition) {
+                $condition->topic('TopicD')->andTopic('TopicE');
+            });
 
         $this->assertEquals($target, $topics->build());
     }
 
-    /**
-     * @test
-     */
-    public function it_send_a_notification_to_a_topic()
+    public function testSendNotification()
     {
         $response = new Response(200, [], '{"message_id":6177433633397011933}');
 
-        $client = Mockery::mock(Client::class);
+        /** @var MockInterface|ClientInterface $client */
+        $client = $this->mock(Client::class);
         $client->shouldReceive('request')->once()->andReturn($response);
 
         $fcm = new FCMSender($client, 'http://test.test');
@@ -125,14 +101,12 @@ class TopicsTest extends FCMTestCase
         $this->assertNull($response->error());
     }
 
-    /**
-     * @test
-     */
-    public function it_send_a_notification_to_a_topic_and_return_error()
+    public function testSendNotificationWithError()
     {
         $response = new Response(200, [], '{"error":"TopicsMessageRateExceeded"}');
 
-        $client = Mockery::mock(Client::class);
+        /** @var MockInterface|ClientInterface $client */
+        $client = $this->mock(Client::class);
         $client->shouldReceive('request')->once()->andReturn($response);
 
         $fcm = new FCMSender($client, 'http://test.test');

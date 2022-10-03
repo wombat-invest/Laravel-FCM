@@ -1,11 +1,11 @@
 <?php
 
-namespace LaravelFCM\Request;
+namespace WombatInvest\LaravelFCM\Request;
 
-use LaravelFCM\Message\Topics;
-use LaravelFCM\Message\Options;
-use LaravelFCM\Message\PayloadData;
-use LaravelFCM\Message\PayloadNotification;
+use WombatInvest\LaravelFCM\Message\Topics;
+use WombatInvest\LaravelFCM\Message\Options;
+use WombatInvest\LaravelFCM\Message\PayloadData;
+use WombatInvest\LaravelFCM\Message\PayloadNotification;
 
 /**
  * Class Request.
@@ -56,8 +56,13 @@ class Request extends BaseRequest
      * @param PayloadData         $data
      * @param Topics|null         $topic
      */
-    public function __construct($to, Options $options = null, PayloadNotification $notification = null, PayloadData $data = null, Topics $topic = null)
-    {
+    public function __construct(
+        $to,
+        Options $options = null,
+        PayloadNotification $notification = null,
+        PayloadData $data = null,
+        Topics $topic = null
+    ) {
         parent::__construct();
 
         $this->to = $to;

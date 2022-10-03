@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelFCM\Message\Exceptions;
+namespace WombatInvest\LaravelFCM\Message\Exceptions;
 
 use Exception;
 

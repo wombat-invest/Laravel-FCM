@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelFCM\Message;
+namespace WombatInvest\LaravelFCM\Message;
 
 /**
  * Class PayloadNotificationBuilder.
@@ -206,7 +206,8 @@ class PayloadNotificationBuilder
      *
      * Indicates whether each notification results in a new entry in the notification drawer on Android.
      * If not set, each request creates a new notification.
-     * If set, and a notification with the same tag is already being shown, the new notification replaces the existing one in the notification drawer.
+     * If set, and a notification with the same tag is already being shown, the new notification
+     * replaces the existing one in the notification drawer.
      *
      * @param string $tag
      *

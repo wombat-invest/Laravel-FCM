@@ -1,8 +1,8 @@
 <?php
 
-namespace LaravelFCM\Message;
+namespace WombatInvest\LaravelFCM\Message;
 
-use LaravelFCM\Message\Exceptions\InvalidOptionsException;
+use WombatInvest\LaravelFCM\Message\Exceptions\InvalidOptionsException;
 use ReflectionClass;
 
 /**
@@ -75,7 +75,7 @@ class OptionsBuilder
      *
      * @param string $collapseKey
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      */
     public function setCollapseKey($collapseKey)
     {
@@ -85,12 +85,12 @@ class OptionsBuilder
     }
 
     /**
-     * Sets the priority of the message. Valid values are "normal" and "high."
-     * By default, messages are sent with normal priority.
+     * Sets the priority of the message. Valid values are "NORMAL" and "HIGH."
+     * By default, messages are sent with NORMAL priority.
      *
      * @param string $priority
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      *
      * @throws InvalidOptionsException
      * @throws \ReflectionException
@@ -98,7 +98,10 @@ class OptionsBuilder
     public function setPriority($priority)
     {
         if (!OptionsPriorities::isValid($priority)) {
-            throw new InvalidOptionsException('priority is not valid, please refer to the documentation or use the constants of the class "OptionsPriorities"');
+            throw new InvalidOptionsException(
+                'priority is not valid, please refer to the documentation ' .
+                'or use the constants of the class "OptionsPriorities"'
+            );
         }
         $this->priority = $priority;
 
@@ -115,7 +118,7 @@ class OptionsBuilder
      *
      * @param bool $contentAvailable
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      */
     public function setContentAvailable($contentAvailable)
     {
@@ -141,11 +144,12 @@ class OptionsBuilder
     }
 
     /**
-     * When this parameter is set to true, it indicates that the message should not be sent until the device becomes active.
+     * When this parameter is set to true, it indicates that the message
+     * should not be sent until the device becomes active.
      *
      * @param bool $delayWhileIdle
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      */
     public function setDelayWhileIdle($delayWhileIdle)
     {
@@ -159,14 +163,16 @@ class OptionsBuilder
      *
      * @param int $timeToLive (in second) min:0 max:2419200
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      *
      * @throws InvalidOptionsException
      */
     public function setTimeToLive($timeToLive)
     {
         if ($timeToLive < 0 || $timeToLive > 2419200) {
-            throw new InvalidOptionsException("time to live must be between 0 and 2419200, current value is: {$timeToLive}");
+            throw new InvalidOptionsException(
+                "time to live must be between 0 and 2419200, current value is: {$timeToLive}"
+            );
         }
         $this->timeToLive = $timeToLive;
 
@@ -174,11 +180,12 @@ class OptionsBuilder
     }
 
     /**
-     * This parameter specifies the package name of the application where the registration tokens must match in order to receive the message.
+     * This parameter specifies the package name of the application where the registration
+     * tokens must match in order to receive the message.
      *
      * @param string $restrictedPackageName
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      */
     public function setRestrictedPackageName($restrictedPackageName)
     {
@@ -193,7 +200,7 @@ class OptionsBuilder
      *
      * @param bool $isDryRun
      *
-     * @return \LaravelFCM\Message\OptionsBuilder
+     * @return \WombatInvest\LaravelFCM\Message\OptionsBuilder
      */
     public function setDryRun($isDryRun)
     {
@@ -290,47 +297,5 @@ class OptionsBuilder
     public function build()
     {
         return new Options($this);
-    }
-}
-
-/**
- * Class OptionsPriorities.
- */
-final class OptionsPriorities
-{
-    /**
-     * @const high priority : iOS, these correspond to APNs priorities 10.
-     */
-    const high = 'high';
-
-    /**
-     * @const normal priority : iOS, these correspond to APNs priorities 5
-     */
-    const normal = 'normal';
-
-    /**
-     * @return array priorities available in fcm
-     *
-     * @throws \ReflectionException
-     */
-    public static function getPriorities()
-    {
-        $class = new ReflectionClass(__CLASS__);
-
-        return $class->getConstants();
-    }
-
-    /**
-     * check if this priority is supported by fcm.
-     *
-     * @param $priority
-     *
-     * @return bool
-     *
-     * @throws \ReflectionException
-     */
-    public static function isValid($priority)
-    {
-        return in_array($priority, static::getPriorities());
     }
 }

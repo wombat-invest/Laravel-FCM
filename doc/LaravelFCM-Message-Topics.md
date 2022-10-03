@@ -1,4 +1,4 @@
-LaravelFCM\Message\Topics
+WombatInvest\LaravelFCM\Message\Topics
 ===============
 
 Class Topics
@@ -7,7 +7,7 @@ Create topic or a topic condition
 
 
 * Class name: Topics
-* Namespace: LaravelFCM\Message
+* Namespace: WombatInvest\LaravelFCM\Message
 
 
 
@@ -21,7 +21,7 @@ Methods
 
 ### topic
 
-    \LaravelFCM\Message\Topics LaravelFCM\Message\Topics::topic(string $first)
+    \WombatInvest\LaravelFCM\Message\Topics WombatInvest\LaravelFCM\Message\Topics::topic(string $first)
 
 Add a topic, this method should be called before any conditional topic
 
@@ -37,7 +37,7 @@ Add a topic, this method should be called before any conditional topic
 
 ### orTopic
 
-    \LaravelFCM\Message\Topics LaravelFCM\Message\Topics::orTopic(string|\Closure $first)
+    \WombatInvest\LaravelFCM\Message\Topics WombatInvest\LaravelFCM\Message\Topics::orTopic(string|\Closure $first)
 
 Add a or condition to the precedent topic set
 
@@ -73,7 +73,7 @@ Equivalent of this: **'TopicA' in topics && ('TopicB' in topics || 'TopicC' in t
 
 ### andTopic
 
-    \LaravelFCM\Message\Topics LaravelFCM\Message\Topics::andTopic(string|\Closure $first)
+    \WombatInvest\LaravelFCM\Message\Topics WombatInvest\LaravelFCM\Message\Topics::andTopic(string|\Closure $first)
 
 Add a and condition to the precedent topic set
 
@@ -109,7 +109,7 @@ Equivalent of this: **'TopicA' in topics || ('TopicB' in topics && 'TopicC' in t
 
 ### build
 
-    array|string LaravelFCM\Message\Topics::build()
+    array|string WombatInvest\LaravelFCM\Message\Topics::build()
 
 Transform to array
 
@@ -122,7 +122,7 @@ Transform to array
 
 ### hasOnlyOneTopic
 
-    boolean LaravelFCM\Message\Topics::hasOnlyOneTopic()
+    boolean WombatInvest\LaravelFCM\Message\Topics::hasOnlyOneTopic()
 
 Check if only one topic was set
 
